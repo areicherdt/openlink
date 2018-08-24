@@ -14,7 +14,7 @@ import org.openmuc.jrxtx.Parity;
 import org.openmuc.jrxtx.SerialPort;
 import org.openmuc.jrxtx.StopBits;
 
-public class SerialPortMock implements SerialPort {
+public class SerialPortMockKW implements SerialPort {
 
 	List<Integer> processList = new ArrayList<>();
 
@@ -26,13 +26,17 @@ public class SerialPortMock implements SerialPort {
 	InputStream inputStream;
 	OutputStream outputStream;
 
-	public SerialPortMock(String portName) {
+	public SerialPortMockKW(String portName) {
 		this.portName = portName;
 
 		this.inputStream = new InputStream() {
 			@Override
 			public int read() throws IOException {
-
+				
+				if(inputQueue.isEmpty()) {
+					return 0;
+				}
+				
 				return inputQueue.poll();
 			}
 		};
@@ -40,12 +44,12 @@ public class SerialPortMock implements SerialPort {
 		this.outputStream = new OutputStream() {
 			@Override
 			public void write(int arg0) throws IOException {
-
 				outputQueue.add(arg0);
-
 				processAnswer();
 			}
 		};
+		
+		inputQueue.add(0x05);
 	}
 
 	protected void processAnswer() {
@@ -56,51 +60,32 @@ public class SerialPortMock implements SerialPort {
 			processList.add(i);
 		}
 
-		if (processList.size() == 1 
-				&& processList.get(0) == (byte) 0x04) {
-			inputQueue.add(0x05);
-			processList = new ArrayList<>();
-		} else if (processList.size() == 3 
-				&& processList.get(0) == (byte) 0x16 
-				&& processList.get(1) == (byte) 0x00
-				&& processList.get(2) == (byte) 0x00) {
-			inputQueue.add(0x06);
-			processList = new ArrayList<>();
-		} else if (processList.size() == 8 
-				&& processList.get(0) == (byte) 0x41 
-				&& processList.get(4) == (byte) 0x00
-				&& processList.get(5) == (byte) 0xF8) {
-			inputQueue.add(0x06);
-			inputQueue.add(0x41);
-			inputQueue.add(0x07);
-			inputQueue.add(0x01);
-			inputQueue.add(0x01);
-			inputQueue.add(0x00);
-			inputQueue.add(0xF8);
-			inputQueue.add(0x02);
+		if (processList.size() == 5 
+				&& processList.get(0) == (byte) 0x01
+				&& processList.get(1) == (byte) 0xF7
+				&& processList.get(2) == (byte) 0x00
+				&& processList.get(3) == (byte) 0xF8
+				&& processList.get(4) == (byte) 0x02)  {
 			inputQueue.add(0x20);
-			inputQueue.add(0xB8);
-			inputQueue.add(0xDB);
+			inputQueue.add(0x98);
 			processList = new ArrayList<>();
-		} else if (processList.size() == 8 
-				&& processList.get(0) == (byte) 0x41 
-				&& processList.get(4) == (byte) 0x55
-				&& processList.get(5) == (byte) 0x25) {
-			inputQueue.add(0x06);
-			inputQueue.add(0x41);
-			inputQueue.add(0x07);
-			inputQueue.add(0x01);
-			inputQueue.add(0x01);
-			inputQueue.add(0x55);
-			inputQueue.add(0x25);
-			inputQueue.add(0x02);
-			inputQueue.add(0x07);
-			inputQueue.add(0x01);
-			inputQueue.add(0x8D);
+			
+			inputQueue.add(0x05);
+		}
+		else if (processList.size() == 5 
+				&& processList.get(0) == (byte) 0x01
+				&& processList.get(1) == (byte) 0xF7
+				&& processList.get(2) == (byte) 0x55
+				&& processList.get(3) == (byte) 0x25
+				&& processList.get(4) == (byte) 0x02)  {
+			inputQueue.add(0x5B);
+			inputQueue.add(0x00);
 			processList = new ArrayList<>();
+			
+			inputQueue.add(0x05);
 		}
 	}
-
+		
 	@Override
 	public void close() throws IOException {
 		// TODO Auto-generated method stub

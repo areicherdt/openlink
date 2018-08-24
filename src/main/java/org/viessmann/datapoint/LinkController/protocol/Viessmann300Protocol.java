@@ -4,16 +4,14 @@ import java.io.IOException;
 
 import org.openmuc.jrxtx.SerialPortTimeoutException;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 import org.viessmann.datapoint.LinkController.configuration.Type;
 import org.viessmann.datapoint.LinkController.connect.SerialInterface;
 
 import ch.qos.logback.classic.Logger;
 
-@Service
-public class Viessmann300Service {
+public class Viessmann300Protocol implements Protocol {
 	
-	Logger logger = (Logger) LoggerFactory.getLogger(Viessmann300Service.class);
+	Logger logger = (Logger) LoggerFactory.getLogger(Viessmann300Protocol.class);
 	
 	public static final int NULL 	= 0x00;
 	public static final int CLOSE	= 0x04;

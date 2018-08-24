@@ -33,8 +33,8 @@ public class SerialInterface {
 	
 	public synchronized void write(int data) throws IOException {
 		logger.debug("write {} -> {}", 
-				String.format("0x%02X", data) ,serialPort.getPortName());		
-		serialPort.getOutputStream().write(data);
+				String.format("0x%02X", (byte) data) ,serialPort.getPortName());		
+		serialPort.getOutputStream().write((byte)data);
 	}
 	
 	public void close() {

@@ -10,11 +10,9 @@ import org.openmuc.jrxtx.SerialPort;
 import org.openmuc.jrxtx.SerialPortBuilder;
 import org.openmuc.jrxtx.StopBits;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import ch.qos.logback.classic.Logger;
 
-@Component
 public class InterfaceFactory {
 			
 	Logger logger = (Logger) LoggerFactory.getLogger(InterfaceFactory.class);
