@@ -15,9 +15,9 @@ import ch.qos.logback.classic.Logger;
 
 public class InterfaceFactory {
 			
-	Logger logger = (Logger) LoggerFactory.getLogger(InterfaceFactory.class);
-	
-	public SerialInterface createSerialInterface(String commPort) {
+	static Logger logger = (Logger) LoggerFactory.getLogger(InterfaceFactory.class);
+		
+	public static SerialInterface createSerialInterface(String commPort) {
 
 		if (listCommPorts().contains(commPort)) {
 			try {
@@ -37,12 +37,14 @@ public class InterfaceFactory {
 				
 			} catch (IOException e) {
 				logger.error(e.getMessage());
+				throw new RuntimeException(e.getMessage());
 			}
 
 		} else {
-			logger.error(commPort + "not available. Cannot create connection.");
+			String msg = String.format("{} not available. Cannot create connection.", commPort);
+			logger.error(msg);
+			throw new RuntimeException(msg);
 		}
-		return null;
 	}
 	
 	public static List<String> listCommPorts() {

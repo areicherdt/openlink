@@ -2,8 +2,8 @@ package org.viessmann.datapoint.LinkController;
 
 
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.viessmann.datapoint.LinkController.connect.InterfaceFactory;
@@ -12,7 +12,7 @@ import org.viessmann.datapoint.LinkController.connect.SerialInterface;
 public class InterfaceControllerTests {
 	
 	private String testCommPort = "COM3";
-	
+
 	@Test
 	public void listCommPorts() {
 		assertTrue(InterfaceFactory.listCommPorts().size() >= 1);
@@ -21,8 +21,7 @@ public class InterfaceControllerTests {
 	
 	@Test
 	public void createSerialInterface() {
-		InterfaceFactory controller = new InterfaceFactory();
-		SerialInterface serialInterface = controller.createSerialInterface(testCommPort);
+		SerialInterface serialInterface = InterfaceFactory.createSerialInterface(testCommPort);
 		
 		assertNotNull(serialInterface);
 		assertTrue(!serialInterface.getSerialPort().isClosed());
@@ -31,19 +30,22 @@ public class InterfaceControllerTests {
 	
 	@Test
 	public void createSerialInterfaceTwice() {
-		InterfaceFactory controller = new InterfaceFactory();
-		SerialInterface serialInterface1 = controller.createSerialInterface(testCommPort);
-		SerialInterface serialInterface2 = controller.createSerialInterface(testCommPort);
-		
+		SerialInterface serialInterface1 = InterfaceFactory.createSerialInterface(testCommPort);
 		assertNotNull(serialInterface1);
-		assertNull(serialInterface2);
-		serialInterface1.close();
+
+		try {
+			InterfaceFactory.createSerialInterface(testCommPort);	
+			fail("RuntimeException expected!");
+		} catch (Exception e) {
+			assertTrue(e instanceof RuntimeException);
+		} finally {
+			serialInterface1.close();
+		}
 	}
 	
 	@Test
 	public void closeSerialInterface() {
-		InterfaceFactory controller = new InterfaceFactory();
-		SerialInterface serialInterface = controller.createSerialInterface(testCommPort);
+		SerialInterface serialInterface = InterfaceFactory.createSerialInterface(testCommPort);
 		
 		serialInterface.close();
 		assertTrue(serialInterface.isClosed());
