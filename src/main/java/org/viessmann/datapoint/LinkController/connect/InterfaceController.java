@@ -10,10 +10,13 @@ public class InterfaceController {
 	
 	Logger logger = (Logger) LoggerFactory.getLogger(InterfaceController.class);
 	
-	private Map<String, SerialInterface> interfaces;
+	private Map<String, SerialInterface> interfaces= new HashMap<>();
 	
 	public InterfaceController() {
-		interfaces  = new HashMap<>();
+	}
+	
+	public InterfaceController(String commPort) {
+		getOrCreateInterface(commPort);
 	}
 	
 	public SerialInterface getFirstInterface() {
