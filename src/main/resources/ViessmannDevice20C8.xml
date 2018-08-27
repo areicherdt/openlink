@@ -1,0 +1,279 @@
+<device id="20C8" description="VPlusHO1" protocol="KW">
+  <modes>
+    <mode id='0' description='Abschaltbetrieb' />
+    <mode id='1' description='Warmwasser' />
+    <mode id='2' description='Warmwasser + Heizung' />
+  </modes>
+  <commands>
+    <command name='Geraetekennung' action='ReadOnly'>
+      <address>00F8</address>
+      <length>2</length>
+      <description>Gerätekennung</description>
+      <format>ControlID</format>
+    </command>
+    <command name='Uhrzeit-m' action='ReadWrite'>
+      <address>088E</address>
+      <length>2</length>
+      <description>Uhrzeit-m</description>
+      <format>Count</format>
+    </command>
+    <command name='Ruecklauftemperatur17A' action='ReadOnly'>
+      <address>0808</address>
+      <length>2</length>
+      <description>Rücklauftemperatur(17A)</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='AussentemperaturTiefpass' action='ReadOnly'>
+      <address>5525</address>
+      <length>2</length>
+      <description>Aussentemperatur (Tiefpass)</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='AussentemperaturGedaempft' action='ReadOnly'>
+      <address>5527</address>
+      <length>2</length>
+      <description>Aussentemperatur (gedämpft)</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='VorlauftemperaturM2' action='ReadOnly'>
+      <address>3900</address>
+      <length>2</length>
+      <description>Vorlauftemperatur M2</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Kesseltemperatur' action='ReadOnly'>
+      <address>A393</address>
+      <length>2</length>
+      <description>Kesseltemperatur</description>
+      <format>Temperature100</format>
+    </command>
+    <command name='KesseltemperaturTiefpass' action='ReadOnly'>
+      <address>0810</address>
+      <length>2</length>
+      <description>Kesseltemperatur (Tiefpass)</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Aussentemperatur' action='ReadOnly'>
+      <address>0800</address>
+      <length>2</length>
+      <description>Aussentemperatur</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='SpeichertemperaturTiefpass' action='ReadOnly'>
+      <address>0812</address>
+      <length>2</length>
+      <description>Speichertemperatur (Tiefpass)</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Speichertemperatur2Tiefpass' action='ReadOnly'>
+      <address>0814</address>
+      <length>2</length>
+      <description>Speichertemperatur 2 (Tiefpass)</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='AbgastemperaturTiefpass' action='ReadOnly'>
+      <address>0816</address>
+      <length>2</length>
+      <description>Abgastemperatur (Tiefpass)</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='VorlaufsolltemperaturA1M1' action='ReadOnly'>
+      <address>2544</address>
+      <length>2</length>
+      <description>Vorlaufsolltemperatur A1M1</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='VorlaufsolltemperaturM2' action='ReadOnly'>
+      <address>3544</address>
+      <length>2</length>
+      <description>Vorlaufsolltemperatur M2</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Kesselsolltemperatur' action='ReadOnly'>
+      <address>555A</address>
+      <length>2</length>
+      <description>Kesselsolltemperatur</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Brennerstarts' action='ReadOnly'>
+      <address>088A</address>
+      <length>4</length>
+      <description>Brennerstarts</description>
+      <format>Count</format>
+    </command>
+    <command name='Brennerstufe' action='ReadOnly'>
+      <address>A390</address>
+      <length>1</length>
+      <description>Brennerstatus</description>
+      <format>Count</format>
+    </command>
+    <command name='ZustandStufe1' action='ReadOnly'>
+      <address>A38F</address>
+      <length>1</length>
+      <description>Zustand 1. Stufe</description>
+      <format>Count</format>
+    </command>
+    <command name='Brennerstoerung' action='ReadOnly'>
+      <address>0883</address>
+      <length>1</length>
+      <description>Brennerstörung</description>
+      <format>Count</format>
+    </command>
+    <command name='BetriebsstundenStufe1' action='ReadOnly'>
+      <address>08A7</address>
+      <length>4</length>
+      <description>Betriebsstunden Stufe 1</description>
+      <format>Count</format>
+    </command>
+    <command name='BetriebsstundenStufe2' action='ReadOnly'>
+      <address>08AB</address>
+      <length>4</length>
+      <description>Betriebsstunden Stufe 2</description>
+      <format>Count</format>
+    </command>
+    <command name='Kollektortemperatur' action='ReadOnly'>
+      <address>6564</address>
+      <length>2</length>
+      <description>Kollektortemperatur</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Solarbetriebsstunden' action='ReadOnly'>
+      <address>6568</address>
+      <length>2</length>
+      <description>Solarbetriebsstunden</description>
+      <format>Count</format>
+    </command>
+    <command name='Nachladeunterdrueckung' action='ReadOnly'>
+      <address>6551</address>
+      <length>1</length>
+      <description>Nachladeunterdrückung</description>
+      <format>Boolean</format>
+    </command>
+    <command name='Solarpumpe' action='ReadOnly'>
+      <address>6552</address>
+      <length>1</length>
+      <description>Solarpumpe</description>
+      <format>Boolean</format>
+    </command>
+    <command name='Solarspeichertemperatur' action='ReadOnly'>
+      <address>6566</address>
+      <length>2</length>
+      <description>Solarspeichertemperatur</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Waermemenge' action='ReadOnly'>
+      <address>6560</address>
+      <length>4</length>
+      <description>Solarspeichertemperatur</description>
+      <format>Count</format>
+    </command>
+    <command name='Speicherladepumpe' action='ReadOnly'>
+      <address>6513</address>
+      <length>1</length>
+      <description>Speicherladepumpe</description>
+      <format>Boolean</format>
+    </command>
+    <command name='Zirkulationspumpe' action='ReadOnly'>
+      <address>6515</address>
+      <length>1</length>
+      <description>Zirkulationspumpe</description>
+      <format>Boolean</format>
+    </command>
+    <command name='HeizkreispumpeA1M1' action='ReadOnly'>
+      <address>7663</address>
+      <length>2</length>
+      <description>Heizkreispumpe A1M1</description>
+      <format>BooleanPercent</format>
+    </command>
+    <command name='HeizkreispumpeM2' action='ReadOnly'>
+      <address>7665</address>
+      <length>2</length>
+      <description>Heizkreispumpe M2</description>
+      <format>BooleanPercent</format>
+    </command>
+    <command name='InternePumpe' action='ReadOnly'>
+      <address>7660</address>
+      <length>2</length>
+      <description>Interne Pumpe</description>
+      <format>BooleanPercent</format>
+    </command>
+    <command name='Umschaltventil' action='ReadOnly'>
+      <address>0A10</address>
+      <length>1</length>
+      <description>Heizkreispumpe A1M1</description>
+      <format>Triple</format>
+    </command>
+    <command name='Sammelstoerung' action='ReadOnly'>
+      <address>0A82</address>
+      <length>1</length>
+      <description>Sammelstörung</description>
+      <format>Boolean</format>
+    </command>
+    <command name='AktuelleBetriebsartA1M1' action='ReadOnly'>
+      <address>2500</address>
+      <length>22</length>
+      <description>Aktuelle Betriebsart A1M1</description>
+      <format>Mode</format>
+    </command>
+    <command name='AnlagenIstLeistung' action='ReadOnly'>
+      <address>A38F</address>
+      <length>2</length>
+      <description>AnlagenIstLeistung</description>
+      <format>Count</format>
+    </command>
+    <command name='BetriebsartA1M1' action='ReadWrite'>
+      <address>2323</address>
+      <length>1</length>
+      <description>Betriebsart A1M1</description>
+      <format>Mode</format>
+    </command>
+    <command name='BetriebsartM2' action='ReadWrite'>
+      <address>3323</address>
+      <length>1</length>
+      <description>Betriebsart M2</description>
+      <format>Mode</format>
+    </command>
+    <command name='SparbetriebA1M1' action='ReadWrite'>
+      <address>2302</address>
+      <length>1</length>
+      <description>Sparbetrieb A1M1</description>
+      <format>Boolean</format>
+    </command>
+    <command name='SparbetriebM2' action='ReadWrite'>
+      <address>3302</address>
+      <length>1</length>
+      <description>Sparbetrieb M2</description>
+      <format>Boolean</format>
+    </command>
+    <command name='PartybetriebA1M1' action='ReadWrite'>
+      <address>2303</address>
+      <length>1</length>
+      <description>Partybetrieb A1M1</description>
+      <format>Boolean</format>
+    </command>
+    <command name='PartybetriebM2' action='ReadWrite'>
+      <address>3303</address>
+      <length>1</length>
+      <description>Partybetrieb M2</description>
+      <format>Boolean</format>
+    </command>
+    <command name='Betriebsart' action='ReadOnly'>
+      <address>2501</address>
+      <length>1</length>
+      <description>Betriebsart</description>
+      <format>Boolean</format>
+    </command>
+    <command name='RaumSolltemperatur' action='ReadOnly'>
+      <address>250C</address>
+      <length>2</length>
+      <description>Raum Solltemperatur</description>
+      <format>Temperature10</format>
+    </command>
+    <command name='Frostgefahr' action='ReadOnly'>
+      <address>2510</address>
+      <length>1</length>
+      <description>Frostgefahr</description>
+      <format>Boolean</format>
+    </command>
+  </commands>
+</device>
