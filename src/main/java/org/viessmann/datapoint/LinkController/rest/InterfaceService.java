@@ -12,13 +12,15 @@ public class InterfaceService {
 	
 	private static final String RETURN_TYPE = "application/json";
 	
-	InterfaceController interfaceController;
+	private InterfaceController interfaceController;
 	
-	public InterfaceService() {
-		this.interfaceController = new InterfaceController();
+	public InterfaceService(InterfaceController interfaceController) {
+		this.interfaceController = interfaceController;
+		init();
 	}
 
-	public void enableStatusService() {	
+	
+	private void init() {	
 		
 		get("/status/ports",(req, res)-> {
 			res.type(RETURN_TYPE);

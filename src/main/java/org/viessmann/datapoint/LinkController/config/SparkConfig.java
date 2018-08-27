@@ -4,6 +4,7 @@ import static spark.Spark.*;
 public class SparkConfig {
 	
 	public static void load() {
+	    exception(Exception.class, (e, req, res) -> e.printStackTrace());
 		port(8090);
 	}
 

@@ -28,10 +28,10 @@ public class ViessmannKWProtocol implements Protocol {
 		long wait= System.currentTimeMillis() + TIMEOUT;
 		
 		try {
-			while(serialInterface.read() != 0x05) {
+			while(serialInterface.read() != ACK) {
 				long now = System.currentTimeMillis();
 				if(now > wait) {
-					throw new RuntimeException(String.format("no ACK ({}) received within {} ms", ACK, TIMEOUT));
+					throw new RuntimeException(String.format("no ACK (%s) received within %s ms", ACK, TIMEOUT));
 				}
 			}
 			

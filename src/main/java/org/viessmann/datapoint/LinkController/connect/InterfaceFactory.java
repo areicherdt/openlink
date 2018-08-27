@@ -30,7 +30,7 @@ public class InterfaceFactory {
 				
 				serialPort.setSerialPortTimeout(3000);
 							
-				logger.debug("Created serialPort for " + commPort);
+				logger.debug("Created serialPort for {}", commPort);
 				
 				SerialInterface serialInterface = new SerialInterface(serialPort);
 				return serialInterface;
@@ -41,7 +41,7 @@ public class InterfaceFactory {
 			}
 
 		} else {
-			String msg = String.format("{} not available. Cannot create connection.", commPort);
+			String msg = String.format("%s not available. Cannot create connection.", commPort);
 			logger.error(msg);
 			throw new RuntimeException(msg);
 		}

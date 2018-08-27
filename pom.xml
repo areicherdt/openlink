@@ -21,6 +21,7 @@
 		<google.code.gson.version>2.8.0</google.code.gson.version>
 		<openmuc.jrxtx.version>1.0.1</openmuc.jrxtx.version>
 		<logback.logback-classic.version>1.2.3</logback.logback-classic.version>
+		<springframework.version>5.0.8.RELEASE</springframework.version>
 	</properties>
 
 	<dependencies>
@@ -59,10 +60,16 @@
 			<version>${logback.logback-classic.version}</version>
 		</dependency>
 
+		<!-- Spring -->
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>log4j-over-slf4j</artifactId>
-			<version>1.7.25</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>${springframework.version}</version>
 		</dependency>
 
 

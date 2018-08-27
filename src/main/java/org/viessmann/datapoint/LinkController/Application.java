@@ -1,17 +1,24 @@
 package org.viessmann.datapoint.LinkController;
 
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.viessmann.datapoint.LinkController.config.ApplicationConfig;
 import org.viessmann.datapoint.LinkController.config.SparkConfig;
-import org.viessmann.datapoint.LinkController.rest.InterfaceService;
+
+import ch.qos.logback.classic.Logger;
 
 
 public class Application {
 
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(Application.class);
+	
 	public static void main(String[] args) {
-
-		SparkConfig.load();
 		
-		InterfaceService statusService = new InterfaceService();
-		statusService.enableStatusService();
+		logger.debug("Application startup.");
+		SparkConfig.load();	
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		logger.debug("context loaded");
 		
 	}
 

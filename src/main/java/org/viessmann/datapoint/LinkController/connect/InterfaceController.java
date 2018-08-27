@@ -21,9 +21,9 @@ public class InterfaceController {
 			SerialInterface serialInterface = InterfaceFactory.createSerialInterface(commPort);
 			interfaces.put(commPort, serialInterface);
 		} else {
-			String msg = String.format("{} commPort already created.", commPort);
+			String msg = String.format("%s commPort already created.", commPort);
 			logger.warn(msg);
-			throw new RuntimeException(msg);
+			throw new RuntimeException();
 		}
 	}
 	
@@ -33,7 +33,7 @@ public class InterfaceController {
 			serialInterface.close();
 			interfaces.remove(commPort);
 		} else {
-			String msg = String.format("{} commPort not available.", commPort);
+			String msg = String.format("%s commPort not available.", commPort);
 			logger.warn(msg);
 			throw new RuntimeException(msg);
 		}
