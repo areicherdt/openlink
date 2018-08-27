@@ -1,0 +1,281 @@
+203  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+288  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @518ms
+363  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+561  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@3244e52d{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+561  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @794ms
+67274 [qtp1900700350-19] WARN  o.v.d.L.connect.InterfaceController - {} commPort not available.
+203  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+290  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @524ms
+369  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+577  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@71a5371b{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+577  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @814ms
+3693 [qtp1541236233-18] WARN  o.v.d.L.connect.InterfaceController - COM3 commPort not available.
+5182 [qtp1541236233-16] WARN  o.v.d.L.connect.InterfaceController - COM3 commPort not available.
+5665 [qtp1541236233-15] WARN  o.v.d.L.connect.InterfaceController - COM3 commPort not available.
+5832 [qtp1541236233-19] WARN  o.v.d.L.connect.InterfaceController - COM3 commPort not available.
+5965 [qtp1541236233-20] WARN  o.v.d.L.connect.InterfaceController - COM3 commPort not available.
+6125 [qtp1541236233-13] WARN  o.v.d.L.connect.InterfaceController - COM3 commPort not available.
+6285 [qtp1541236233-18] WARN  o.v.d.L.connect.InterfaceController - COM3 commPort not available.
+9347 [qtp1541236233-16] WARN  o.v.d.L.connect.InterfaceController - COM4 commPort not available.
+235  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+239  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x04 -> COM3
+241  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+243  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x16 -> COM3
+244  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+244  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+244  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+244  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - session start successful
+244  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x41 -> COM3
+245  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x05 -> COM3
+245  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+245  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+246  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x55 -> COM3
+247  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x25 -> COM3
+247  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+247  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x82 -> COM3
+248  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+248  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - transfer data to interface successful
+249  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x41 <- COM3
+249  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+250  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+250  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+250  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x55 <- COM3
+250  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x25 <- COM3
+251  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x02 <- COM3
+251  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+251  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+252  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x8D <- COM3
+257  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+258  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x04 -> COM3
+260  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+262  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x16 -> COM3
+262  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+262  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+262  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+263  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - session start successful
+263  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x41 -> COM3
+263  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x05 -> COM3
+263  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+263  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+263  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+264  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF8 -> COM3
+264  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+264  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+266  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+266  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - transfer data to interface successful
+267  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x41 <- COM3
+270  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+271  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+271  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+271  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x00 <- COM3
+272  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xF8 <- COM3
+272  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x02 <- COM3
+273  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x20 <- COM3
+273  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xB8 <- COM3
+273  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xDB <- COM3
+281  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+281  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+281  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+283  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF7 -> COM3
+283  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x55 -> COM3
+283  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x25 -> COM3
+284  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+284  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x5B <- COM3
+285  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x00 <- COM3
+285  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+286  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+286  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+286  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF7 -> COM3
+286  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+286  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF8 -> COM3
+286  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+287  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x20 <- COM3
+287  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x98 <- COM3
+190  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+194  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x04 -> COM3
+196  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+196  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x16 -> COM3
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+197  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - session start successful
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x41 -> COM3
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x05 -> COM3
+198  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+198  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+198  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x55 -> COM3
+198  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x25 -> COM3
+199  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+199  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x82 -> COM3
+199  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+199  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - transfer data to interface successful
+199  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x41 <- COM3
+200  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+200  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+200  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x55 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x25 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x02 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+202  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+202  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x8D <- COM3
+207  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+207  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x04 -> COM3
+207  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+207  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x16 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+208  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - session start successful
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x41 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x05 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+209  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+209  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF8 -> COM3
+209  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+209  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+209  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+209  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - transfer data to interface successful
+210  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x41 <- COM3
+211  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+211  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+211  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+211  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x00 <- COM3
+212  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xF8 <- COM3
+212  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x02 <- COM3
+212  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x20 <- COM3
+212  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xB8 <- COM3
+212  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xDB <- COM3
+217  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+217  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+217  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+217  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF7 -> COM3
+217  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x55 -> COM3
+218  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x25 -> COM3
+218  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+218  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x5B <- COM3
+218  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x00 <- COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF7 -> COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF8 -> COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+220  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x20 <- COM3
+220  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x98 <- COM3
+187  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+191  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x04 -> COM3
+193  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+194  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x16 -> COM3
+194  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+195  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+195  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+195  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - session start successful
+195  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x41 -> COM3
+196  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x05 -> COM3
+196  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+196  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x55 -> COM3
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x25 -> COM3
+197  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+198  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x82 -> COM3
+198  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+198  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - transfer data to interface successful
+199  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x41 <- COM3
+199  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+200  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+200  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x55 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x25 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x02 <- COM3
+201  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+202  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+202  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x8D <- COM3
+207  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+207  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x04 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x16 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+208  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+209  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - session start successful
+209  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x41 -> COM3
+209  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x05 -> COM3
+210  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+210  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+210  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+210  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF8 -> COM3
+211  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+212  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+212  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x06 <- COM3
+212  [main] DEBUG o.v.d.L.p.Viessmann300Protocol - transfer data to interface successful
+213  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x41 <- COM3
+213  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x07 <- COM3
+213  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+213  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x01 <- COM3
+213  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x00 <- COM3
+213  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xF8 <- COM3
+214  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x02 <- COM3
+214  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x20 <- COM3
+214  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xB8 <- COM3
+215  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0xDB <- COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+219  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+220  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF7 -> COM3
+220  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x55 -> COM3
+220  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x25 -> COM3
+220  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+221  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x5B <- COM3
+221  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x00 <- COM3
+222  [main] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+222  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x05 <- COM3
+223  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x01 -> COM3
+223  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF7 -> COM3
+223  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x00 -> COM3
+223  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0xF8 -> COM3
+223  [main] DEBUG o.v.d.L.connect.SerialInterface - write 0x02 -> COM3
+223  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x20 <- COM3
+224  [main] DEBUG o.v.d.L.connect.SerialInterface - read 0x98 <- COM3
+204  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+206  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+669  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @911ms
+709  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+907  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@558ad88c{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+907  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @1151ms
+205  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+675  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @915ms
+717  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+919  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@635b3886{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+919  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @1162ms
+222  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+663  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @906ms
+678  [main] DEBUG o.v.d.LinkController.Application - Application startup complete @1535372062350
+707  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+904  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@719b0d47{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+904  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @1150ms
+205  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+684  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @918ms
+695  [main] DEBUG o.v.d.LinkController.Application - context loaded
+724  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+921  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@27a69e47{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+921  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @1158ms
+36354 [qtp1989079350-18] DEBUG o.v.d.L.connect.InterfaceFactory - Created serialPort for COM3
+210  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+678  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @920ms
+692  [main] DEBUG o.v.d.LinkController.Application - context loaded
+718  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+914  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@4e267c5e{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+914  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @1158ms
+16491 [qtp884311948-17] DEBUG o.v.d.L.connect.InterfaceFactory - Created serialPort for COM3
+210  [main] DEBUG o.v.d.LinkController.Application - Application startup.
+706  [Thread-0] INFO  org.eclipse.jetty.util.log - Logging initialized @953ms
+719  [main] DEBUG o.v.d.LinkController.Application - context loaded
+745  [Thread-0] INFO  org.eclipse.jetty.server.Server - jetty-9.3.6.v20151106
+943  [Thread-0] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@2156e416{HTTP/1.1,[http/1.1]}{0.0.0.0:8090}
+943  [Thread-0] INFO  org.eclipse.jetty.server.Server - Started @1192ms
+9682 [qtp275935527-15] DEBUG o.v.d.L.connect.InterfaceFactory - Created serialPort for COM3
+9684 [qtp275935527-15] DEBUG o.v.d.L.connect.SerialInterface - flush COM3
+12817 [qtp275935527-15] ERROR o.v.d.L.p.ViessmannKWProtocol - readData timeout -> COM3

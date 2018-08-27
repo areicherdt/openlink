@@ -16,14 +16,21 @@ public class InterfaceController {
 		interfaces  = new HashMap<>();
 	}
 	
-	public void createInterface(String commPort) {	
+	public SerialInterface getFirstInterface() {
+		if(!interfaces.isEmpty() && interfaces.size() == 1) {
+			return interfaces.values()
+					.stream().findFirst().get();
+		}
+		return null;
+	}
+	
+	public SerialInterface getOrCreateInterface(String commPort) {	
 		if(!interfaces.containsKey(commPort)) {
 			SerialInterface serialInterface = InterfaceFactory.createSerialInterface(commPort);
 			interfaces.put(commPort, serialInterface);
+			return serialInterface;
 		} else {
-			String msg = String.format("%s commPort already created.", commPort);
-			logger.warn(msg);
-			throw new RuntimeException();
+			return interfaces.get(commPort);
 		}
 	}
 	

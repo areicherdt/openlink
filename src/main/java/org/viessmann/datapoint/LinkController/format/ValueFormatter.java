@@ -1,6 +1,6 @@
 package org.viessmann.datapoint.LinkController.format;
 
-import org.viessmann.datapoint.LinkController.configuration.Type;
+import org.viessmann.datapoint.LinkController.protocol.Type;
 
 public class ValueFormatter {
 

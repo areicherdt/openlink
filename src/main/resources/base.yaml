@@ -1,0 +1,14 @@
+address: 00F8
+type: short
+description: SystemId
+channel: systemid
+
+address: 088E
+type: short
+description: DateTime
+channel: time
+
+address: 0FFF
+type: short
+description: test123
+channel: keks

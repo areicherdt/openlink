@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.openmuc.jrxtx.SerialPortTimeoutException;
 import org.slf4j.LoggerFactory;
-import org.viessmann.datapoint.LinkController.configuration.Type;
 import org.viessmann.datapoint.LinkController.connect.SerialInterface;
 
 import ch.qos.logback.classic.Logger;

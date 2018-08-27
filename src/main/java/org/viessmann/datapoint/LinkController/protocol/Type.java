@@ -1,4 +1,4 @@
-package org.viessmann.datapoint.LinkController.configuration;
+package org.viessmann.datapoint.LinkController.protocol;
 
 public enum Type {
 

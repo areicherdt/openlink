@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.viessmann.datapoint.LinkController.connect.InterfaceController;
 import org.viessmann.datapoint.LinkController.rest.InterfaceService;
-import org.viessmann.datapoint.LinkController.rest.ProtocolService;
+import org.viessmann.datapoint.LinkController.rest.DatapointService;
 
 @Configuration
 public class ApplicationConfig {
@@ -15,8 +15,8 @@ public class ApplicationConfig {
 	}
 	
 	@Bean
-	public ProtocolService ProtocolService() {
-		return new ProtocolService(interfaceController());
+	public DatapointService ProtocolService() {
+		return new DatapointService(interfaceController());
 	}
 	
 	@Bean

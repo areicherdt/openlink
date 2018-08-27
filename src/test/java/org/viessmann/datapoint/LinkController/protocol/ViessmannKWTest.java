@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.viessmann.datapoint.LinkController.configuration.Type;
 import org.viessmann.datapoint.LinkController.connect.SerialInterface;
 import org.viessmann.datapoint.LinkController.format.ValueFormatter;
 

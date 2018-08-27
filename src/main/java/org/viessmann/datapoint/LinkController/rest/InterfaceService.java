@@ -41,7 +41,7 @@ public class InterfaceService {
 			res.type(RETURN_TYPE);
 			String port = req.params(":port");
 			try {
-				interfaceController.createInterface(port);
+				interfaceController.getOrCreateInterface(port);
 				return new Gson().toJson(
 						new StandardResponse(StatusResponse.SUCCESS));
 			}
