@@ -19,8 +19,11 @@ public class YamlTest {
 		ApplicationConfig config = loader.loadConfiguration();
 		
 		assertNotNull(config);
-		assertEquals("/dev/ttyUSB0", config.getPort());
+		assertTrue(!config.getPort().isEmpty());
 		assertEquals(ProtocolType.KW, config.getProtocol());
+		
+		assertTrue(!config.getDatabase().getUrl().isEmpty());
+		assertTrue(config.getLogging().isEnabled());
 	}
 	
 	@Test

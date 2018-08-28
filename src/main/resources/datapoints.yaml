@@ -2,13 +2,16 @@ address: 00F8
 type: SHORT
 description: SystemId
 channel: systemid
+log: false
 ---
 address: 088E
 type: SHORT
-description: DateTime
-channel: time
+description: Systemzeit
+channel: systemtime
+log: false
 ---
-address: 0FFF
-type: SHORT
-description: test123
-channel: keks
+address: 0800
+type: TEMP10
+description: Aussentemperatur
+channel: outsidetemp
+log: true

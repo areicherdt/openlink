@@ -22,6 +22,7 @@
 		<openmuc.jrxtx.version>1.0.1</openmuc.jrxtx.version>
 		<logback.logback-classic.version>1.2.3</logback.logback-classic.version>
 		<springframework.version>5.0.8.RELEASE</springframework.version>
+		<yaml.sankeyaml.version>1.21</yaml.sankeyaml.version>
 	</properties>
 
 	<dependencies>
@@ -51,7 +52,7 @@
 		<dependency>
 			<groupId>org.yaml</groupId>
 			<artifactId>snakeyaml</artifactId>
-			<version>1.21</version>
+			<version>${yaml.sankeyaml.version}</version>
 		</dependency>
 
 		<dependency>
@@ -65,7 +66,14 @@
 			<artifactId>logback-classic</artifactId>
 			<version>${logback.logback-classic.version}</version>
 		</dependency>
-
+		
+		<!-- Database -->
+		<dependency>
+		    <groupId>org.influxdb</groupId>
+		    <artifactId>influxdb-java</artifactId>
+		    <version>2.12</version>
+		</dependency>
+		
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>

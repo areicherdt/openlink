@@ -3,9 +3,13 @@ package org.viessmann.datapoint.LinkController.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.viessmann.datapoint.LinkController.rest.InterfaceService;
+import org.viessmann.datapoint.LinkController.scheduler.SchedulerService;
 import org.viessmann.datapoint.LinkController.util.YamlLoader;
+import org.viessmann.datapoint.LinkController.config.model.Database;
+import org.viessmann.datapoint.LinkController.config.model.Logging;
 import org.viessmann.datapoint.LinkController.controller.InterfaceController;
 import org.viessmann.datapoint.LinkController.controller.ProtocolController;
+import org.viessmann.datapoint.LinkController.db.InfluxService;
 import org.viessmann.datapoint.LinkController.protocol.Viessmann300Protocol;
 import org.viessmann.datapoint.LinkController.protocol.ViessmannKWProtocol;
 import org.viessmann.datapoint.LinkController.rest.DatapointService;
@@ -53,5 +57,24 @@ public class SpringConfig {
 	@Bean
 	public YamlLoader yamlLoader() {
 		return new YamlLoader();
+	}
+	
+	@Bean
+	public InfluxService influxService() {
+		Database dbconfig = applicationConfig().getDatabase();
+		if(dbconfig.getUrl() != null && !dbconfig.getUrl().isEmpty()) {
+			return new InfluxService(dbconfig);
+		}
+		return null;
+	}
+	
+	@Bean
+	public SchedulerService schedulerService() {
+		Logging logConfig = applicationConfig().getLogging();
+		if(logConfig.isEnabled()) {
+			return new SchedulerService(influxService(), protocolController(), 
+					yamlLoader().loadDatapoints(), logConfig);
+		}
+		return null;
 	}
 }

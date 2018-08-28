@@ -6,6 +6,7 @@ public class Datapoint {
 	private String description;
 	private DataType type;
 	private String channel;
+	private boolean log;
 	
 	public String getAddress() {
 		return address;
@@ -30,12 +31,17 @@ public class Datapoint {
 	}
 	public void setChannel(String channel) {
 		this.channel = channel;
+	}	
+	public boolean isLog() {
+		return log;
 	}
-	
+	public void setLog(boolean log) {
+		this.log = log;
+	}
 	public String toString() {
 		StringBuffer str = new StringBuffer();
 		str.append(address).append(" / ").append(description).append(" / ")
-			.append(type).append(" / ").append(channel);
+			.append(type).append(" / ").append(channel).append(" / log: ").append(log);
 		return str.toString();
 	}
 }
