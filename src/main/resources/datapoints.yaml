@@ -1,14 +1,14 @@
 address: 00F8
-type: short
+type: SHORT
 description: SystemId
 channel: systemid
-
+---
 address: 088E
-type: short
+type: SHORT
 description: DateTime
 channel: time
-
+---
 address: 0FFF
-type: short
+type: SHORT
 description: test123
 channel: keks

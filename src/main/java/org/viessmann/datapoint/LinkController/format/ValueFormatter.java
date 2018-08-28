@@ -1,10 +1,10 @@
 package org.viessmann.datapoint.LinkController.format;
 
-import org.viessmann.datapoint.LinkController.protocol.Type;
+import org.viessmann.datapoint.LinkController.model.DataType;
 
 public class ValueFormatter {
 
-	public static String formatByteValues(byte[] buffer, Type type, int divider) {
+	public static String formatByteValues(byte[] buffer, DataType type) {
 	
 		long result = 0;
 		
@@ -31,8 +31,8 @@ public class ValueFormatter {
 			break;
 		}
 		
-		if(divider > 1) {
-			return String.format("%.2f", (float)result / divider);
+		if(type.getDivider() > 1) {
+			return String.format("%.2f", (float)result / type.getDivider());
 		} else {
 			return String.format("%d", result);
 		}

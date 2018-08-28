@@ -1,9 +1,13 @@
-package org.viessmann.datapoint.LinkController.connect;
+package org.viessmann.datapoint.LinkController.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.LoggerFactory;
+import org.viessmann.datapoint.LinkController.connect.InterfaceFactory;
+import org.viessmann.datapoint.LinkController.connect.InterfaceStatus;
+import org.viessmann.datapoint.LinkController.connect.SerialInterface;
+
 import ch.qos.logback.classic.Logger;
 
 public class InterfaceController {
@@ -12,8 +16,7 @@ public class InterfaceController {
 	
 	private Map<String, SerialInterface> interfaces= new HashMap<>();
 	
-	public InterfaceController() {
-	}
+	public InterfaceController() {}
 	
 	public InterfaceController(String commPort) {
 		getOrCreateInterface(commPort);

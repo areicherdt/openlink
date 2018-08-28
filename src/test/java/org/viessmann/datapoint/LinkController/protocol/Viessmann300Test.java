@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.viessmann.datapoint.LinkController.connect.SerialInterface;
 import org.viessmann.datapoint.LinkController.format.ValueFormatter;
+import org.viessmann.datapoint.LinkController.model.DataType;
 
 public class Viessmann300Test {
 	
@@ -23,7 +24,7 @@ public class Viessmann300Test {
 		
 		int address = Integer.parseInt("00F8",16);
 		
-		byte[] result = protocolService.readData(serialInterface, address, Type.SHORT);
+		byte[] result = protocolService.readData(serialInterface, address, DataType.SHORT);
 		serialInterface.close();
 		
 		assertEquals((byte)0x20, result[0]);
@@ -34,12 +35,12 @@ public class Viessmann300Test {
 	public void readOutsideTempWithFormatter() {
 		int address = Integer.parseInt("5525",16);
 		
-		byte[] result = protocolService.readData(serialInterface, address, Type.SHORT);
+		byte[] result = protocolService.readData(serialInterface, address, DataType.SHORT);
 		serialInterface.close();
 		
 		assertEquals((byte)0x07, result[0]);
 		assertEquals((byte)0x01, result[1]);
 		
-		assertEquals("26,30", ValueFormatter.formatByteValues(result, Type.SHORT, 10));
+		assertEquals("263", ValueFormatter.formatByteValues(result, DataType.SHORT));
 	}
 }

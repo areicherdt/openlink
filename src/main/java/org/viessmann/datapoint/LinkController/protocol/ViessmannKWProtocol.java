@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openmuc.jrxtx.SerialPortTimeoutException;
 import org.slf4j.LoggerFactory;
 import org.viessmann.datapoint.LinkController.connect.SerialInterface;
+import org.viessmann.datapoint.LinkController.model.DataType;
 
 import ch.qos.logback.classic.Logger;
 
@@ -19,9 +20,9 @@ public class ViessmannKWProtocol implements Protocol {
 	private static final long TIMEOUT = 1000;
 	
 	@Override
-	public synchronized byte[] readData(SerialInterface serialInterface, int adress, Type type) {
+	public synchronized byte[] readData(SerialInterface serialInterface, int adress, DataType type) {
 		
-		byte[] buffer = new byte [type.getLen()];
+		byte[] buffer = new byte [type.getLength()];
 		serialInterface.flush();
 		
 		long wait= System.currentTimeMillis() + TIMEOUT;
@@ -38,15 +39,17 @@ public class ViessmannKWProtocol implements Protocol {
 			serialInterface.write(READ);
 			serialInterface.write((byte) (adress >> 8));
 			serialInterface.write((byte) (adress & 0xff));
-			serialInterface.write((byte) type.getLen());
+			serialInterface.write((byte) type.getLength());
 			
-			for(int i=0; i < type.getLen(); i++) {
+			for(int i=0; i < type.getLength(); i++) {
 				buffer[i] = (byte) serialInterface.read();
 			}
 			return buffer;
 			
 		} catch (SerialPortTimeoutException e) {
-			logger.error("readData timeout -> {}", serialInterface.getSerialPort().getPortName());
+			String msg = String.format("readData timeout -> %s", serialInterface.getSerialPort().getPortName());
+			logger.error(msg);
+			throw new RuntimeException(msg);
 		} catch (IOException e) {
 			logger.error("readData error -> " + e.getMessage());
 		}

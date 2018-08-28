@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.openmuc.jrxtx.SerialPortTimeoutException;
 import org.slf4j.LoggerFactory;
 import org.viessmann.datapoint.LinkController.connect.SerialInterface;
+import org.viessmann.datapoint.LinkController.model.DataType;
 
 import ch.qos.logback.classic.Logger;
 
@@ -19,9 +20,9 @@ public class Viessmann300Protocol implements Protocol {
 	public static final int START 	= 0x41;
 
 	
-	public synchronized byte[] readData(SerialInterface serialInterface, int adress, Type type) {
+	public synchronized byte[] readData(SerialInterface serialInterface, int adress, DataType type) {
 		
-		byte[] transmitBuffer = {0x00, 0x01, (byte)(adress >> 8), (byte)(adress & 0xff), (byte)type.getLen()};
+		byte[] transmitBuffer = {0x00, 0x01, (byte)(adress >> 8), (byte)(adress & 0xff), (byte)type.getLength()};
 		byte[] resultBuffer = new byte[16];
 		
 		if(serialInterface != null && startSession(serialInterface)) {
@@ -32,7 +33,7 @@ public class Viessmann300Protocol implements Protocol {
 					int resultBytes = receiveData(serialInterface, resultBuffer);
 					
 					if(resultBytes > 0) {
-						return handleReadResult(resultBuffer, adress, type.getLen()); //OK
+						return handleReadResult(resultBuffer, adress, type.getLength()); //OK
 					}
 					else {
 						logger.warn("communication failed. retry #{}", i);

@@ -1,1 +1,4 @@
-port: "/dev/ttyUSB0"
+#port: "/dev/ttyUSB0"
+port: "COM3"
+protocol: "KW"
+description: "VPlusHO1"

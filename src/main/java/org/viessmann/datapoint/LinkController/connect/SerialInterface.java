@@ -54,7 +54,7 @@ public class SerialInterface {
 	}
 	
 	public synchronized void flush() {
-		logger.debug("flush " + serialPort.getPortName());
+		logger.trace("flush " + serialPort.getPortName());
 		
 		try {
 			serialPort.getInputStream()

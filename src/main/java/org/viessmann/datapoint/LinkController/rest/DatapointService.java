@@ -2,63 +2,45 @@ package org.viessmann.datapoint.LinkController.rest;
 
 import static spark.Spark.get;
 
-import org.viessmann.datapoint.LinkController.connect.InterfaceController;
-import org.viessmann.datapoint.LinkController.connect.SerialInterface;
-import org.viessmann.datapoint.LinkController.format.ValueFormatter;
-import org.viessmann.datapoint.LinkController.protocol.Protocol;
-import org.viessmann.datapoint.LinkController.protocol.Type;
-import org.viessmann.datapoint.LinkController.protocol.ViessmannKWProtocol;
+import java.util.List;
+
+import org.viessmann.datapoint.LinkController.controller.ProtocolController;
+import org.viessmann.datapoint.LinkController.model.Datapoint;
 
 import com.google.gson.Gson;
 
 public class DatapointService {
 
 	private static final String RETURN_TYPE = "application/json";
-
-	private InterfaceController interfaceController;
 	
-	private Protocol protocolService;
+	private ProtocolController controller;
 	
-	public DatapointService(InterfaceController interfaceController) {
-		this.interfaceController = interfaceController;
-		this.protocolService = new ViessmannKWProtocol();
-		init();
+	public DatapointService(ProtocolController controller, List<Datapoint> datapoints) {
+		this.controller = controller;
+		init(datapoints);
 	}
 	
-	private void init() {
-		
-		get("/read/:port/:datapoint",(req, res)-> {
-			res.type(RETURN_TYPE);
+	private void init(List<Datapoint> datapoints) {
 			
-			String port = req.params(":port");
-			//String protocol = req.params(":protocol");
-			String datapoint = req.params(":datapoint");
-			
-			SerialInterface serialInterface = interfaceController.getOrCreateInterface(port);
-			byte[] result = protocolService.readData(serialInterface, Integer.parseInt(datapoint, 16), Type.SHORT);
-
-			return new Gson().toJson(
-					new StandardResponse(StatusResponse.SUCCESS, new Gson()
-							.toJsonTree(ValueFormatter.formatByteValues(result, Type.SHORT, 10))));
-		});
-		
-		get("/read/:datapoint",(req,res) -> {
-			res.type(RETURN_TYPE);
-			
-			String datapoint = req.params(":datapoint");		
-			SerialInterface serialInterface = interfaceController.getFirstInterface();
-			
-			if(serialInterface!=null) {
-				byte[] result = protocolService.readData(serialInterface, Integer.parseInt(datapoint, 16), Type.SHORT);
+		datapoints.stream().forEach(dp -> {
+			get("/read/"+dp.getChannel(), (req,res) -> {
+				String result = controller.readAddress(dp.getAddress(), dp.getType());
 				return new Gson().toJson(
 						new StandardResponse(StatusResponse.SUCCESS, new Gson()
-								.toJsonTree(ValueFormatter.formatByteValues(result, Type.SHORT, 10))));
-			} else {
-				return new Gson().toJson(
-						new StandardResponse(StatusResponse.ERROR, "no default interface defined."));
-			}			
+						.toJsonTree(result)));
+			});
 		});
 		
-		
+		get("/read/:address/:type",(req,res) -> {
+			res.type(RETURN_TYPE);
+			
+			String address = req.params(":address");
+			String type = req.params(":type");
+			String result = controller.readAddressWithStringType(address, type);
+			
+			return new Gson().toJson(
+					new StandardResponse(StatusResponse.SUCCESS, new Gson()
+					.toJsonTree(result)));
+		});		
 	}
 }

@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.viessmann.datapoint.LinkController.connect.SerialInterface;
 import org.viessmann.datapoint.LinkController.format.ValueFormatter;
+import org.viessmann.datapoint.LinkController.model.DataType;
 
 public class ViessmannKWTest {
 
@@ -25,7 +26,7 @@ public class ViessmannKWTest {
 		
 		int address = Integer.parseInt("00F8",16);
 		
-		byte[] result = protocolService.readData(serialInterface, address, Type.SHORT);
+		byte[] result = protocolService.readData(serialInterface, address, DataType.SHORT);
 		serialInterface.close();
 		
 		assertEquals((byte)0x20, result[0]);
@@ -37,12 +38,12 @@ public class ViessmannKWTest {
 		
 		int address = Integer.parseInt("5525",16);
 		
-		byte[] result = protocolService.readData(serialInterface, address, Type.SHORT);
+		byte[] result = protocolService.readData(serialInterface, address, DataType.SHORT);
 		serialInterface.close();
 		
 		assertEquals((byte)0x5B, result[0]);
 		assertEquals((byte)0x00, result[1]);
-		assertEquals("9,10", ValueFormatter.formatByteValues(result, Type.SHORT, 10));
+		assertEquals("91", ValueFormatter.formatByteValues(result, DataType.SHORT));
 	}
 	
 	//@Test(expected = RuntimeException.class)
@@ -51,7 +52,7 @@ public class ViessmannKWTest {
 		serialInterface.read();
 		int address = Integer.parseInt("00F8",16);
 		
-		protocolService.readData(serialInterface, address, Type.SHORT);
+		protocolService.readData(serialInterface, address, DataType.SHORT);
 		serialInterface.close();
 	}
 	

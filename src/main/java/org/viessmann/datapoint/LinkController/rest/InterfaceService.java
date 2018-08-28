@@ -2,8 +2,8 @@ package org.viessmann.datapoint.LinkController.rest;
 
 import static spark.Spark.get;
 
-import org.viessmann.datapoint.LinkController.connect.InterfaceController;
 import org.viessmann.datapoint.LinkController.connect.InterfaceFactory;
+import org.viessmann.datapoint.LinkController.controller.InterfaceController;
 
 import com.google.gson.Gson;
 

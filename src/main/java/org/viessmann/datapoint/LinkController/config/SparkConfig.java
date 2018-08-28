@@ -1,10 +1,19 @@
 package org.viessmann.datapoint.LinkController.config;
 import static spark.Spark.*;
 
+import org.viessmann.datapoint.LinkController.rest.StandardResponse;
+import org.viessmann.datapoint.LinkController.rest.StatusResponse;
+
+import com.google.gson.Gson;
+
 public class SparkConfig {
 	
 	public static void load() {
-	    exception(Exception.class, (e, req, res) -> e.printStackTrace());
+	    exception(Exception.class, (e, req, res) -> {
+	    	res.status(500);
+	    	res.body(new Gson().toJson(new StandardResponse(StatusResponse.ERROR, 
+	    			String.format("%s - %s", e.getClass(), e.getMessage()))));
+	    });
 		port(8090);
 	}
 
