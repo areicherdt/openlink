@@ -3,6 +3,7 @@ package org.viessmann.datapoint.LinkController.model;
 public enum DataType {
 
 	TEMP10  (2, 10),
+	TEMP100 (2, 100),
 	BOOL	(1, 1),
 	BYTE	(1, 1),
 	UBYTE	(1, 1),

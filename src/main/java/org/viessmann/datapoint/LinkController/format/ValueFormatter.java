@@ -11,6 +11,10 @@ public class ValueFormatter {
 		switch (type) {
 		case TEMP10:
 			result = getShort(buffer);
+			break;
+		case TEMP100:
+			result = getShort(buffer);
+			break;
 		case BOOL:
 			return buffer[0] == 0 ? "OFF" : "ON";
 		case BYTE:
@@ -21,6 +25,7 @@ public class ValueFormatter {
 			break;
 		case SHORT:
 			result = getShort(buffer);
+			break;
 		case TIMER:
 			break;
 		case UBYTE:

@@ -22,7 +22,7 @@ public class SerialInterface {
 		
 		data = serialPort.getInputStream().read();
 		if(data!=-1) {
-			logger.debug("read {} <- {}", String.format("0x%02X", data), serialPort.getPortName());
+			logger.trace("read {} <- {}", String.format("0x%02X", data), serialPort.getPortName());
 		}
 		else {
 			logger.debug("read failed." + serialPort.getPortName());
@@ -32,7 +32,7 @@ public class SerialInterface {
 	}
 	
 	public synchronized void write(int data) throws IOException {
-		logger.debug("write {} -> {}", 
+		logger.trace("write {} -> {}", 
 				String.format("0x%02X", (byte) data) ,serialPort.getPortName());		
 		serialPort.getOutputStream().write((byte)data);
 	}
