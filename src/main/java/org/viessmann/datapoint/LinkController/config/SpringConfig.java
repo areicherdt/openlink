@@ -1,5 +1,8 @@
 package org.viessmann.datapoint.LinkController.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.viessmann.datapoint.LinkController.rest.InterfaceService;
@@ -10,6 +13,8 @@ import org.viessmann.datapoint.LinkController.config.model.Logging;
 import org.viessmann.datapoint.LinkController.controller.InterfaceController;
 import org.viessmann.datapoint.LinkController.controller.ProtocolController;
 import org.viessmann.datapoint.LinkController.db.InfluxService;
+import org.viessmann.datapoint.LinkController.protocol.TemperatureFilter;
+import org.viessmann.datapoint.LinkController.protocol.ValueFilter;
 import org.viessmann.datapoint.LinkController.protocol.Viessmann300Protocol;
 import org.viessmann.datapoint.LinkController.protocol.ViessmannKWProtocol;
 import org.viessmann.datapoint.LinkController.rest.DatapointService;
@@ -36,7 +41,7 @@ public class SpringConfig {
 	public ProtocolController protocolController() {
 		switch (applicationConfig().getProtocol()) {
 		case KW:
-			return new ProtocolController(new ViessmannKWProtocol(), interfaceController());
+			return new ProtocolController(new ViessmannKWProtocol(filterChain()), interfaceController());
 		case V300:
 			return new ProtocolController(new Viessmann300Protocol(), interfaceController());
 		default:
@@ -76,5 +81,12 @@ public class SpringConfig {
 					yamlLoader().loadDatapoints(), logConfig);
 		}
 		return null;
+	}
+	
+	public List<ValueFilter> filterChain() {
+		List<ValueFilter> list = new ArrayList<>();
+		list.add(new TemperatureFilter());
+		
+		return list;
 	}
 }

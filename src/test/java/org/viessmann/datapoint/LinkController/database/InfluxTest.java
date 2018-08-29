@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class InfluxTest {
 
-	private static final String dbName = "test";
+	private static final String dbName = "unitTest";
 	
 	private InfluxDB db;
 	

@@ -1,8 +1,11 @@
 package org.viessmann.datapoint.LinkController.protocol;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +20,9 @@ public class ViessmannKWTest {
 	
 	@Before
 	public void init() {
-		protocolService = new ViessmannKWProtocol();
+		List<ValueFilter> filterList = new ArrayList<>();
+		filterList.add(new TemperatureFilter());
+		protocolService = new ViessmannKWProtocol(filterList);
 		serialInterface = new SerialInterface(new SerialPortMockKW("COM3"));		
 	}
 	
@@ -43,7 +48,15 @@ public class ViessmannKWTest {
 		
 		assertEquals((byte)0x5B, result[0]);
 		assertEquals((byte)0x00, result[1]);
-		assertEquals("91", ValueFormatter.formatByteValues(result, DataType.SHORT));
+		assertEquals("91", ValueFormatter.formatByteValuesToString(result, DataType.SHORT));
+	}
+	
+	@Test
+	public void readTempWithFilterAndRetry() {
+		
+		int address = Integer.parseInt("0800",16);
+		byte[] result = protocolService.readData(serialInterface, address, DataType.TEMP10);
+		assertNotNull(result);
 	}
 	
 	//@Test(expected = RuntimeException.class)

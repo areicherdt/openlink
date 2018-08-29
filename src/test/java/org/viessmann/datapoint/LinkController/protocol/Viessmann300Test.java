@@ -41,6 +41,6 @@ public class Viessmann300Test {
 		assertEquals((byte)0x07, result[0]);
 		assertEquals((byte)0x01, result[1]);
 		
-		assertEquals("263", ValueFormatter.formatByteValues(result, DataType.SHORT));
+		assertEquals("263", ValueFormatter.formatByteValuesToString(result, DataType.SHORT));
 	}
 }

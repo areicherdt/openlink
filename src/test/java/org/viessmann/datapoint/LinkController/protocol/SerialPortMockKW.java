@@ -84,6 +84,18 @@ public class SerialPortMockKW implements SerialPort {
 			
 			inputQueue.add(0x05);
 		}
+		else if (processList.size() == 5 
+				&& processList.get(0) == (byte) 0x01
+				&& processList.get(1) == (byte) 0xF7
+				&& processList.get(2) == (byte) 0x08
+				&& processList.get(3) == (byte) 0x00
+				&& processList.get(4) == (byte) 0x02)  {
+			inputQueue.add(0x05);
+			inputQueue.add(0x05);
+			processList = new ArrayList<>();
+			
+			inputQueue.add(0x05);
+		}
 	}
 		
 	@Override

@@ -25,7 +25,7 @@ public class ProtocolController {
 		
 		SerialInterface serialInterface = interfaceController.getFirstInterface();
 		int byteAddress = Integer.parseInt(address, 16);
-		byte[] result = protocolHandler.readData(serialInterface, byteAddress , dataType);
+		byte[] result = protocolHandler.readData(serialInterface, byteAddress , dataType);		
 		return formatValue(result, dataType);
 	}
 	
@@ -36,7 +36,7 @@ public class ProtocolController {
 	private String formatValue(byte[] array, DataType dataType) {
 		
 		if(array!=null) {
-			return ValueFormatter.formatByteValues(array, dataType);
+			return ValueFormatter.formatByteValuesToString(array, dataType);
 		}
 
 		return null;
