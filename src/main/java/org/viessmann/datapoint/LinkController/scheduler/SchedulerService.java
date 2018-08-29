@@ -63,9 +63,13 @@ public class SchedulerService {
 				logger.debug("execute scheduled task.");
 				datapoints.stream().filter(Datapoint::isLog).forEach( dp -> {				
 					Map<String, Object> fieldMap = new HashMap<>();
-					Object result = protocolController.readAddress(dp.getAddress(), dp.getType());
-					fieldMap.put("value", result);
-					databaseService.writeDataPoint(dp.getChannel(), fieldMap);
+					try {
+						Object result = protocolController.readAddress(dp.getAddress(), dp.getType());
+						fieldMap.put("value", result);
+						databaseService.writeDataPoint(dp.getChannel(), fieldMap);
+					} catch (Exception e) {
+						logger.error("error while reading scheduled {}", e.getMessage());
+					}
 				});				
 			}
 		};
