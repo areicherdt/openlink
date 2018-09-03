@@ -30,7 +30,7 @@ public class InfluxTest {
 		db.setLogLevel(LogLevel.NONE);
 	}
 	
-	@Test
+	//@Test
 	public void testPing() {
 		Pong response = db.ping();
 		if (response.getVersion().equalsIgnoreCase("unknown")) {
@@ -38,7 +38,7 @@ public class InfluxTest {
 		} 
 	}
 	
-	@Test 
+	//@Test 
 	public void writeData() throws InterruptedException {
 		
 		db.setDatabase(dbName);
@@ -57,7 +57,7 @@ public class InfluxTest {
 		Thread.sleep(1000);
 	}
 	
-	@Test
+	//@Test
 	public void queryData() throws InterruptedException {
 		writeData();
 		Query queryObject = new Query("select * from temperatures order by time desc", dbName);
