@@ -15,6 +15,7 @@ public class SparkConfig {
 	    			String.format("%s - %s", e.getClass(), e.getMessage()))));
 	    });
 		port(8090);
+		threadPool(4, 2, 50000);
 	}
 
 	public static void enableCORS(final String origin, final String methods, final String headers) {
