@@ -8,7 +8,7 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import org.slf4j.LoggerFactory;
-import org.viessmann.datapoint.LinkController.config.model.Logging;
+import org.viessmann.datapoint.LinkController.config.ApplicationConfig;
 import org.viessmann.datapoint.LinkController.controller.ProtocolController;
 import org.viessmann.datapoint.LinkController.db.InfluxService;
 import org.viessmann.datapoint.LinkController.model.Datapoint;
@@ -24,12 +24,12 @@ public class SchedulerService {
 	private InfluxService databaseService;
 	private ProtocolController protocolController;
 	
-	private Logging logConfig;
+	private ApplicationConfig config;
 	private List<Datapoint> datapoints;
 	
 	public SchedulerService(InfluxService influxService, 
-			ProtocolController protocolController, List<Datapoint> datapoints, Logging logConfig) {
-		this.logConfig = logConfig;
+			ProtocolController protocolController, List<Datapoint> datapoints, ApplicationConfig config) {
+		this.config = config;
 		this.datapoints = datapoints;
 		this.databaseService = influxService;
 		this.protocolController = protocolController;
@@ -40,9 +40,9 @@ public class SchedulerService {
 	
 	public void startExecutor() {
 		executorService.scheduleAtFixedRate(createScheduledTask()
-				, 1, logConfig.getCronInMinutes(), TimeUnit.MINUTES);
+				, 1, config.getSchedule().getCronInMinutes(), TimeUnit.MINUTES);
 		
-		logger.info("scheduler started with {} min period.", logConfig.getCronInMinutes());
+		logger.info("scheduler started with {} min period.", config.getSchedule().getCronInMinutes());
 	}
 	
 	public void stopExecutor() {
@@ -61,12 +61,16 @@ public class SchedulerService {
 			@Override
 			public void run() {
 				logger.debug("execute scheduled task.");
+			
 				datapoints.stream().filter(Datapoint::isLog).forEach( dp -> {				
 					Map<String, Object> fieldMap = new HashMap<>();
 					try {
 						Object result = protocolController.readAddress(dp.getAddress(), dp.getType());
 						fieldMap.put("value", result);
-						databaseService.writeDataPoint(dp.getChannel(), fieldMap);
+					
+						if(config.getDatabase().isEnabled()) {
+							databaseService.writeDataPoint(dp.getChannel(), fieldMap);
+						}
 					} catch (Exception e) {
 						logger.error("error while reading scheduled {}", e.getMessage());
 					}

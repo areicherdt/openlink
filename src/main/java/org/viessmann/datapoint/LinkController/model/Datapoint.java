@@ -7,6 +7,7 @@ public class Datapoint {
 	private DataType type;
 	private String channel;
 	private boolean log;
+	private boolean cache;
 	
 	public String getAddress() {
 		return address;
@@ -38,10 +39,16 @@ public class Datapoint {
 	public void setLog(boolean log) {
 		this.log = log;
 	}
+	public boolean isCache() {
+		return cache;
+	}
+	public void setCache(boolean cache) {
+		this.cache = cache;
+	}
 	public String toString() {
 		StringBuffer str = new StringBuffer();
 		str.append(address).append(" / ").append(description).append(" / ")
-			.append(type).append(" / ").append(channel).append(" / log: ").append(log);
+			.append(type).append(" / ").append(channel).append(" / log: ").append(log).append(" / cache: ").append(cache);
 		return str.toString();
 	}
 }

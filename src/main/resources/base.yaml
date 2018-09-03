@@ -2,10 +2,11 @@
 port: "COM3"
 protocol: "KW"
 description: "VPlusHO1"
-logging:
-  enabled: false
+schedule:
+  enabled: true
   cronInMinutes: 15
 database:
+  enabled: false
   url: ""
   user: ""
   password: ""

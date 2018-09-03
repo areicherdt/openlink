@@ -1,6 +1,6 @@
 package org.viessmann.datapoint.LinkController.config.model;
 
-public class Logging {
+public class Schedule {
 
 	private boolean enabled;
 	private int cronInMinutes;

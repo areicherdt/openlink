@@ -2,12 +2,19 @@ package org.viessmann.datapoint.LinkController.config.model;
 
 public class Database {
 	
+	private boolean enabled;
 	private String url;
 	private String user;
 	private String password;
 	private String retention;
 	private String dbname;
 	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 	public String getUrl() {
 		return url;
 	}

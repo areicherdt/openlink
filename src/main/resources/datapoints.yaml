@@ -3,66 +3,77 @@ type: BYTE2
 description: SystemId
 channel: systemid
 log: false
+cache: false
 ---
 address: 088E
 type: DATE
 description: Systemzeit
 channel: systemzeit
 log: false
+cache: false
 ---
 address: 0800
 type: TEMP10
 description: Aussentemperatur
 channel: aussentemperatur
 log: true
+cache: true
 ---
 address: 0804
 type: TEMP10
 description: Warmwasser-Ist
 channel: warmwasser
 log: true
+cache: true
 ---
 address: 6300
 type: BYTE
 description: Warmwasser-Soll
 channel: warmwassersoll
 log: false
+cache: true
 ---
 address: 0802
 type: TEMP10
 description: Kesseltemperatur-Ist
 channel: kesseltemperatur
 log: true
+cache: true
 ---
 address: A393
 type: TEMP100
 description: Kesseltemperatur-Ist-2
 channel: kesseltemperatur2
 log: true
+cache: true
 ---
 address: 555A
 type: TEMP10
 description: Kesseltemperatur-Soll
 channel: kesseltemperatursoll
 log: false
+cache: true
 ---
 address: 2306
 type: BYTE
 description: Raumtemperatur-Soll
 channel: raumtemperatursoll
 log: false
+cache: true
 ---
 address: 7574
 type: OIL
 description: Oelverbrauch-am-Tag
 channel: oelverbrauch
 log: true
+cache: true
 ---
 address: 6564
 type: TEMP10
 description: Kollektortemperatur
 channel: kollektortemperatur
 log: true
+cache: true
 ---
 address: 6552
 type: BOOL

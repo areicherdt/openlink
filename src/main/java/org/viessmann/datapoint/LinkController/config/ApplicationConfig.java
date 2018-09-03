@@ -1,7 +1,7 @@
 package org.viessmann.datapoint.LinkController.config;
 
 import org.viessmann.datapoint.LinkController.config.model.Database;
-import org.viessmann.datapoint.LinkController.config.model.Logging;
+import org.viessmann.datapoint.LinkController.config.model.Schedule;
 import org.viessmann.datapoint.LinkController.protocol.ProtocolType;
 
 public class ApplicationConfig {
@@ -9,9 +9,9 @@ public class ApplicationConfig {
 	private String port;
 	private ProtocolType protocol;
 	private String description;
+	private Schedule schedule;
 	private Database database;
-	private Logging logging;
-
+	
 	public String getPort() {
 		return port;
 	}
@@ -35,20 +35,20 @@ public class ApplicationConfig {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
+	public Schedule getSchedule() {
+		return schedule;
+	}
+
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
 	public Database getDatabase() {
 		return database;
 	}
 
 	public void setDatabase(Database database) {
 		this.database = database;
-	}
-
-	public Logging getLogging() {
-		return logging;
-	}
-
-	public void setLogging(Logging logging) {
-		this.logging = logging;
 	}
 }

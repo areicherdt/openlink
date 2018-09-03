@@ -9,7 +9,7 @@ import org.viessmann.datapoint.LinkController.rest.InterfaceService;
 import org.viessmann.datapoint.LinkController.scheduler.SchedulerService;
 import org.viessmann.datapoint.LinkController.util.YamlLoader;
 import org.viessmann.datapoint.LinkController.config.model.Database;
-import org.viessmann.datapoint.LinkController.config.model.Logging;
+import org.viessmann.datapoint.LinkController.config.model.Schedule;
 import org.viessmann.datapoint.LinkController.controller.InterfaceController;
 import org.viessmann.datapoint.LinkController.controller.ProtocolController;
 import org.viessmann.datapoint.LinkController.db.InfluxService;
@@ -75,10 +75,10 @@ public class SpringConfig {
 	
 	@Bean
 	public SchedulerService schedulerService() {
-		Logging logConfig = applicationConfig().getLogging();
-		if(logConfig.isEnabled()) {
+		Schedule scheduleConfig = applicationConfig().getSchedule();
+		if(scheduleConfig.isEnabled()) {
 			return new SchedulerService(influxService(), protocolController(), 
-					yamlLoader().loadDatapoints(), logConfig);
+					yamlLoader().loadDatapoints(), applicationConfig());
 		}
 		return null;
 	}

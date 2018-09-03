@@ -23,7 +23,7 @@ public class YamlTest {
 		assertEquals(ProtocolType.KW, config.getProtocol());
 		
 		assertTrue(config.getDatabase().getUrl().isEmpty());
-		assertTrue(!config.getLogging().isEnabled());
+		assertTrue(config.getSchedule().isEnabled());
 	}
 	
 	@Test
