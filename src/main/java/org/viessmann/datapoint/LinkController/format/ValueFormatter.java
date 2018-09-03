@@ -1,9 +1,16 @@
 package org.viessmann.datapoint.LinkController.format;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
+
 import org.viessmann.datapoint.LinkController.model.DataType;
 
 public class ValueFormatter {
 
+	public static final DecimalFormat decimalFormat 
+		= new DecimalFormat("###.##", new DecimalFormatSymbols(Locale.ENGLISH));
+	
 	public static String formatByteValuesToString(byte[] buffer, DataType type) {
 
 		Object result = formatByteValues(buffer, type);
@@ -11,11 +18,7 @@ public class ValueFormatter {
 			return (String) result;
 		}
 		
-		if(type.getDivider() > 1) {
-			return String.format("%.2f", (float)result);
-		} else {
-			return String.format("%d", result);
-		}
+		return decimalFormat.format(result);
 	}
 	
 	public static Object formatByteValues(byte[] buffer, DataType type) {

@@ -3,12 +3,12 @@ port: "COM3"
 protocol: "KW"
 description: "VPlusHO1"
 logging:
-  enabled: true
+  enabled: false
   cronInMinutes: 15
 database:
-  url: "http://localhost:8086"
+  url: ""
   user: ""
   password: ""
   retention: "365d"
-  dbname: "testdb"
+  dbname: ""
   

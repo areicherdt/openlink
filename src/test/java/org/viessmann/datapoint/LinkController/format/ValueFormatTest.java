@@ -14,7 +14,7 @@ public class ValueFormatTest {
 		float result = (Float) ValueFormatter.formatByteValues(buffer, DataType.TEMP10);
 		
 		assertEquals(9.1f, result, 0.0);
-		assertEquals("9,10", resultStr);
+		assertEquals("9.1", resultStr);
 	}
 	
 	@Test
@@ -24,7 +24,7 @@ public class ValueFormatTest {
 		float result = (Float) ValueFormatter.formatByteValues(buffer, DataType.TEMP100);
 		
 		assertEquals(0.91f, result, 0.0);
-		assertEquals("0,91", resultStr);
+		assertEquals("0.91", resultStr);
 	}
 	
 	@Test
