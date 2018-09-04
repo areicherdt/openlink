@@ -5,11 +5,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>org.viessmann.datapoint</groupId>
-	<artifactId>LinkController</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>openlink</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>LinkController</name>
+	<name>openlink</name>
 	<description></description>
 
 	<properties>
@@ -109,11 +109,11 @@
 							<goal>single</goal>
 						</goals>
 						<configuration>
-							<finalName>viessmann-link</finalName>
+							<finalName>openlink</finalName>
 							<archive>
 								<manifest>
 									<mainClass>
-										org.viessmann.datapoint.LinkController.Application
+										org.openlink.datapoint.Application
 									</mainClass>
 								</manifest>
 							</archive>
