@@ -1,2 +1,2 @@
-# viess-link
-viessmann optolink java prototype
+# openLink
+viessmann optolink java rest service
