@@ -8,15 +8,16 @@ import org.springframework.context.annotation.Configuration;
 import org.viessmann.datapoint.LinkController.rest.InterfaceService;
 import org.viessmann.datapoint.LinkController.scheduler.SchedulerService;
 import org.viessmann.datapoint.LinkController.util.YamlLoader;
-import org.viessmann.datapoint.LinkController.config.model.Database;
+
 import org.viessmann.datapoint.LinkController.config.model.Schedule;
+import org.viessmann.datapoint.LinkController.controller.CacheController;
 import org.viessmann.datapoint.LinkController.controller.InterfaceController;
 import org.viessmann.datapoint.LinkController.controller.ProtocolController;
-import org.viessmann.datapoint.LinkController.db.InfluxService;
 import org.viessmann.datapoint.LinkController.protocol.TemperatureFilter;
 import org.viessmann.datapoint.LinkController.protocol.ValueFilter;
 import org.viessmann.datapoint.LinkController.protocol.Viessmann300Protocol;
 import org.viessmann.datapoint.LinkController.protocol.ViessmannKWProtocol;
+import org.viessmann.datapoint.LinkController.protocol.command.DatapointOperationExecutor;
 import org.viessmann.datapoint.LinkController.rest.DatapointService;
 
 @Configuration
@@ -51,7 +52,7 @@ public class SpringConfig {
 
 	@Bean
 	public DatapointService datapointService() {
-		return new DatapointService(protocolController(), yamlLoader().loadDatapoints());
+		return new DatapointService(protocolController(), yamlLoader().loadDatapoints(), cache());
 	}
 
 	@Bean
@@ -65,22 +66,23 @@ public class SpringConfig {
 	}
 	
 	@Bean
-	public InfluxService influxService() {
-		Database dbconfig = applicationConfig().getDatabase();
-		if(dbconfig.getUrl() != null && !dbconfig.getUrl().isEmpty()) {
-			return new InfluxService(dbconfig);
+	public SchedulerService schedulerService() {
+		Schedule scheduleConfig = applicationConfig().getSchedule();
+		if(scheduleConfig.isEnabled()) {
+			return new SchedulerService(yamlLoader().loadDatapoints(), 
+					applicationConfig(), datapointOperationExecutor(), protocolController(), cache());
 		}
 		return null;
 	}
 	
 	@Bean
-	public SchedulerService schedulerService() {
-		Schedule scheduleConfig = applicationConfig().getSchedule();
-		if(scheduleConfig.isEnabled()) {
-			return new SchedulerService(influxService(), protocolController(), 
-					yamlLoader().loadDatapoints(), applicationConfig());
-		}
-		return null;
+	public DatapointOperationExecutor datapointOperationExecutor() {
+		return new DatapointOperationExecutor();
+	}
+	
+	@Bean
+	public CacheController cache() {
+		return new CacheController();
 	}
 	
 	public List<ValueFilter> filterChain() {

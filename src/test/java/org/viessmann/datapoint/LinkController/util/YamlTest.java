@@ -22,7 +22,6 @@ public class YamlTest {
 		assertTrue(!config.getPort().isEmpty());
 		assertEquals(ProtocolType.KW, config.getProtocol());
 		
-		assertTrue(config.getDatabase().getUrl().isEmpty());
 		assertTrue(config.getSchedule().isEnabled());
 	}
 	

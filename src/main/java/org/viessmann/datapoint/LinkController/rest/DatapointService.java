@@ -2,12 +2,10 @@ package org.viessmann.datapoint.LinkController.rest;
 
 import static spark.Spark.get;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
+import org.viessmann.datapoint.LinkController.controller.CacheController;
 import org.viessmann.datapoint.LinkController.controller.ProtocolController;
-import org.viessmann.datapoint.LinkController.model.ChannelResult;
 import org.viessmann.datapoint.LinkController.model.Datapoint;
 
 import com.google.gson.Gson;
@@ -16,11 +14,11 @@ public class DatapointService {
 
 	private static final String RETURN_TYPE = "application/json";
 	private ProtocolController controller;
-	private Map<String, ChannelResult> cache;
+	private CacheController cache;
 	
-	public DatapointService(ProtocolController controller, List<Datapoint> datapoints) {
+	public DatapointService(ProtocolController controller, List<Datapoint> datapoints, CacheController cache) {
 		this.controller = controller;
-		cache = new HashMap<>();
+		this.cache = cache; 
 		init(datapoints);
 	}
 	
@@ -29,12 +27,12 @@ public class DatapointService {
 		datapoints.stream().forEach(dp -> {
 			String ch = dp.getChannel();
 			if(dp.isCache()) {
-				cache.put(ch, new ChannelResult(""));
+				cache.put(ch, "");
 			}	
 			get("/read/"+dp.getChannel(), (req,res) -> {
 				String result = controller.readAddress(dp.getAddress(), dp.getType());
 				if(dp.isCache()) {
-					cache.put(ch, new ChannelResult(result));
+					cache.put(ch, result);
 				}		
 				return new Gson().toJson(
 						new StandardResponse(StatusResponse.SUCCESS, new Gson()
@@ -58,7 +56,7 @@ public class DatapointService {
 			res.type(RETURN_TYPE);
 			return new Gson().toJson(
 					new StandardResponse(StatusResponse.SUCCESS, new Gson()
-					.toJsonTree(cache)));
+					.toJsonTree(cache.readAll())));
 		});
 		
 		

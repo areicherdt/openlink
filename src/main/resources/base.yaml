@@ -5,11 +5,4 @@ description: "VPlusHO1"
 schedule:
   enabled: true
   cronInMinutes: 15
-database:
-  enabled: false
-  url: ""
-  user: ""
-  password: ""
-  retention: "365d"
-  dbname: ""
   

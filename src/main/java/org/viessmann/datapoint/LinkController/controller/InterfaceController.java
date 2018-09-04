@@ -64,4 +64,8 @@ public class InterfaceController {
 			return InterfaceStatus.NOT_AVAILABLE;
 		}
 	}
+	
+	public void addInterface(String name, SerialInterface serialInterface) {
+		interfaces.put(name, serialInterface);
+	}
 }
