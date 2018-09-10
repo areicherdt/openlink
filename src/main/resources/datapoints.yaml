@@ -1,78 +1,65 @@
 address: 00F8
 type: BYTE2
-description: SystemId
 channel: systemid
 cache: false
 ---
 address: 088E
 type: DATE
-description: Systemzeit
 channel: systemzeit
 cache: false
 ---
 address: 0800
 type: TEMP10
-description: Aussentemperatur
 channel: aussentemperatur
 cache: true
 ---
 address: 0804
 type: TEMP10
-description: Warmwasser-Ist
 channel: warmwasser
 cache: true
 ---
 address: 6300
 type: BYTE
-description: Warmwasser-Soll
 channel: warmwassersoll
 cache: true
 ---
 address: 0802
 type: TEMP10
-description: Kesseltemperatur-Ist
 channel: kesseltemperatur
 cache: true
 ---
 address: A393
 type: TEMP100
-description: Kesseltemperatur-Ist-2
 channel: kesseltemperatur2
 cache: true
 ---
 address: 555A
 type: TEMP10
-description: Kesseltemperatur-Soll
 channel: kesseltemperatursoll
 cache: true
 ---
 address: 2306
 type: BYTE
-description: Raumtemperatur-Soll
 channel: raumtemperatursoll
 cache: true
 ---
 address: 7574
 type: OIL
-description: Oelverbrauch-am-Tag
 channel: oelverbrauch
 cache: true
 ---
 address: 6564
 type: TEMP10
-description: Kollektortemperatur
 channel: kollektortemperatur
 cache: true
 ---
 address: 6552
 type: BOOL
-description: Solarpumpe
 channel: solarpumpe
 cache: true
 ---
 address: 6566
 type: TEMP10
-description: Solarspeichertemperatur
 channel: solarspeichertemperatur
 cache: true
 

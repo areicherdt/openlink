@@ -22,7 +22,9 @@ public class ReadDatapointOperation implements DatapointOperation {
 	public String execute() {
 		Thread.currentThread().setName("ReadDatapointOperation");
 		String result = protocolController.readAddress(datapoint.getAddress(), datapoint.getType());
-		cacheController.put(datapoint.getChannel(), result);	
+		if(result != null ) {
+			cacheController.put(datapoint.getChannel(), result);	
+		}		
 		return result;
 	}
 }

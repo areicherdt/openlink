@@ -1,7 +1,6 @@
 package org.openlink.datapoint.protocol;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -59,7 +58,7 @@ public class ViessmannKWTest {
 		
 		int address = Integer.parseInt("0800",16);
 		byte[] result = protocolService.readData(serialInterface, address, DataType.TEMP10);
-		assertNotNull(result);
+		assertEquals(null, result);
 	}
 	
 	//@Test(expected = RuntimeException.class)

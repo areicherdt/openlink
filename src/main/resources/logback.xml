@@ -17,11 +17,11 @@
 		</encoder>
 	</appender>
 
-	<logger name="org.viessmann.datapoint.LinkController"
+	<logger name="org.openlink.datapoint"
 		level="DEBUG" />
 
-	<logger name="org.apache.spark" level="INFO" />
-	<logger name="org.eclipse.jetty" level="INFO" />
+	<logger name="org.apache.spark" level="WARN" />
+	<logger name="org.eclipse.jetty" level="WARN" />
 
 	<root level="WARN">
 		<appender-ref ref="STDOUT" />

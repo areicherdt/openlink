@@ -22,12 +22,10 @@ public class TemperatureFilter implements ValueFilter {
 					logger.debug("{} value {} > {}", TemperatureFilter.class, num, MAX);
 				}
 				return false;
-			} else {
-				return true;
 			}
 		}
 		
-		return false;
+		return true;
 	}
 
 	@Override

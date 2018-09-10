@@ -16,8 +16,7 @@ public class YamlTest {
 
 	@Test
 	public void testBaseYaml() {
-		YamlLoader loader = new YamlLoader();
-		ApplicationConfig config = loader.loadConfiguration();
+		ApplicationConfig config = YamlLoader.loadConfiguration();
 		
 		assertNotNull(config);
 		assertTrue(!config.getPort().isEmpty());
@@ -28,8 +27,7 @@ public class YamlTest {
 	
 	@Test
 	public void testDatapointYaml() {
-		YamlLoader loader = new YamlLoader();
-		List<Datapoint> list = loader.loadDatapoints();
+		List<Datapoint> list = YamlLoader.loadDatapoints();
 		
 		assertTrue(list.size() > 1);
 		list.forEach(dp -> assertTrue(!dp.getAddress().isEmpty()));

@@ -22,6 +22,8 @@ public class ViessmannKWProtocol implements Protocol {
 		
 	private static final long TIMEOUT = 1000;
 	
+	private static final int RETRY_COUNT = 2;
+	
 	private List<ValueFilter> filters = new ArrayList<>();
 	
 	public ViessmannKWProtocol() {}
@@ -33,25 +35,23 @@ public class ViessmannKWProtocol implements Protocol {
 	@Override
 	public synchronized byte[] readData(SerialInterface serialInterface, int adress, DataType type) {
 		
-		byte [] result = null;
-		int retry = 0;
-		boolean ok = true;
+		byte [] result = null;	
 		
-		while(retry < 3) {
+		for(int retry = 0; retry <= RETRY_COUNT; retry++) {
+			boolean ok = true;
 			result = readAndFilterdata(serialInterface, adress, type);
 			Object o = ValueFormatter.formatByteValues(result, type);
 			for(ValueFilter filter : filters) {
 				filter.setLogger(logger);
 				if(!filter.doFilter(o, type)) {
-					retry++;
 					ok = false;
 					break;
 				}
 			}
 			if(ok) {
 				break;
-			} else {
-				continue;
+			} else if(!ok && retry >= RETRY_COUNT) {
+				result = null;
 			}
 		}
 		return result;

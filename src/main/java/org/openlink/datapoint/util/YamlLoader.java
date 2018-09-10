@@ -19,9 +19,9 @@ public class YamlLoader {
 	
 	public final static String CONFIG_PATH = "/etc/openlink/";
 	
-	Logger logger = (Logger) LoggerFactory.getLogger(YamlLoader.class);
+	static Logger logger = (Logger) LoggerFactory.getLogger(YamlLoader.class);
 
-	public ApplicationConfig loadConfiguration() {
+	public static ApplicationConfig loadConfiguration() {
 
 		Yaml yaml = new Yaml(new Constructor(ApplicationConfig.class));
 		InputStream io = loadInputStream("base.yaml");
@@ -34,7 +34,7 @@ public class YamlLoader {
 		return config;
 	}
 	
-	public List<Datapoint> loadDatapoints() {
+	public static List<Datapoint> loadDatapoints() {
 		
 		List<Datapoint> result = new ArrayList<>();
 		Yaml yaml = new Yaml(new Constructor(Datapoint.class));
@@ -49,7 +49,7 @@ public class YamlLoader {
 	}
 	
 	@SuppressWarnings("resource")
-	private InputStream loadInputStream(String filename) {
+	private static InputStream loadInputStream(String filename) {
 		
 		InputStream io = null;
 		try {
@@ -57,8 +57,8 @@ public class YamlLoader {
 			io = new FileInputStream(file);
 			logger.debug("loaded config {}", file.getPath());
 		} catch (IOException e) {
-			logger.warn("config {} not found, using default settings for {}", filename);
-			io = this.getClass()
+			logger.warn("config {} not found, using default settings", filename);
+			io = YamlLoader.class
 					  .getClassLoader()
 					  .getResourceAsStream(filename);
 		}

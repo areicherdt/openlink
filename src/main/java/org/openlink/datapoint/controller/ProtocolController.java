@@ -21,8 +21,8 @@ public class ProtocolController {
 		this.interfaceController = interfaceController;
 	}
 
-	public String readAddress(String address, DataType dataType) {
-		logger.debug("read data for address {} with type {}", address, dataType);
+	public synchronized String readAddress(String address, DataType dataType) {
+		logger.trace("read data for address {} with type {}", address, dataType);
 		
 		SerialInterface serialInterface = interfaceController.getFirstInterface();
 		int byteAddress = Integer.parseInt(address, 16);

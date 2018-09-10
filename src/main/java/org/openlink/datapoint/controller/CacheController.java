@@ -4,7 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.openlink.datapoint.model.ChannelResult;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CacheController {
 	
 	private Map<String, ChannelResult> cache;

@@ -2,24 +2,24 @@ package org.openlink.datapoint.rest;
 
 import static spark.Spark.get;
 
+import javax.annotation.PostConstruct;
+
 import org.openlink.datapoint.connect.InterfaceFactory;
 import org.openlink.datapoint.controller.InterfaceController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 
-
+@Component
 public class InterfaceService {
 	
 	private static final String RETURN_TYPE = "application/json";
 	
+	@Autowired
 	private InterfaceController interfaceController;
-	
-	public InterfaceService(InterfaceController interfaceController) {
-		this.interfaceController = interfaceController;
-		init();
-	}
 
-	
+	@PostConstruct
 	private void init() {	
 		
 		get("/status/ports",(req, res)-> {

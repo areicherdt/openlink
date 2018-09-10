@@ -3,7 +3,6 @@ package org.openlink.datapoint.model;
 public class Datapoint {
 
 	private String address;
-	private String description;
 	private DataType type;
 	private String channel;
 	private boolean cache;
@@ -13,12 +12,6 @@ public class Datapoint {
 	}
 	public void setAddress(String address) {
 		this.address = address;
-	}
-	public String getDescription() {
-		return description;
-	}
-	public void setDescription(String description) {
-		this.description = description;
 	}
 	public DataType getType() {
 		return type;
@@ -41,8 +34,7 @@ public class Datapoint {
 	@Override
 	public String toString() {
 		StringBuffer str = new StringBuffer();
-		str.append(address).append(" / ").append(description).append(" / ")
-			.append(type).append(" / ").append(channel).append(" / cache: ").append(cache);
+		str.append(address).append(" / ").append(type).append(" / ").append(channel).append(" / cache: ").append(cache);
 		return str.toString();
 	}
 }

@@ -1,5 +1,7 @@
 package org.openlink.datapoint;
 
+import java.util.Date;
+
 import org.openlink.datapoint.config.SparkConfig;
 import org.openlink.datapoint.config.SpringConfig;
 import org.slf4j.LoggerFactory;
@@ -15,11 +17,10 @@ public class Application {
 	
 	public static void main(String[] args) {
 		
-		logger.debug("Application startup.");
+		logger.info("Application startup.");
 		SparkConfig.load();	
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-		
-		logger.debug("context loaded");
+		logger.info("context loaded {}", new Date(ctx.getStartupDate()));
 		
 	}
 

@@ -5,6 +5,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import javax.annotation.PostConstruct;
+
 import org.openlink.datapoint.config.model.ApplicationConfig;
 import org.openlink.datapoint.controller.CacheController;
 import org.openlink.datapoint.controller.ProtocolController;
@@ -12,32 +14,34 @@ import org.openlink.datapoint.model.Datapoint;
 import org.openlink.datapoint.protocol.command.DatapointOperationExecutor;
 import org.openlink.datapoint.protocol.command.ReadDatapointOperation;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import ch.qos.logback.classic.Logger;
 
 public class SchedulerService {
 	
 	Logger logger = (Logger) LoggerFactory.getLogger(SchedulerService.class);
-
+	
+	@Autowired
 	private DatapointOperationExecutor operationExecutor;
-	private ScheduledExecutorService executorService;
+	
+	@Autowired
 	private ProtocolController protocolController;
+	
+	@Autowired
 	private CacheController cache;
 	
+	@Autowired
 	private ApplicationConfig config;
+	
+	@Autowired
 	private List<Datapoint> datapoints;
 	
-	public SchedulerService(List<Datapoint> datapoints, ApplicationConfig config, DatapointOperationExecutor operationExecutor,
-			ProtocolController protocolController, CacheController cache) {
-		 
+	private ScheduledExecutorService executorService;
+	
+	@PostConstruct
+	private void init() {
 		executorService = Executors.newSingleThreadScheduledExecutor();
-		
-		this.protocolController = protocolController;
-		this.cache = cache;
-		this.operationExecutor = operationExecutor;
-		this.config = config;
-		this.datapoints = datapoints;
-		
 		logger.debug("scheduler created.");
 		startExecutor();
 	}
@@ -64,6 +68,7 @@ public class SchedulerService {
 		return new Runnable() {	
 			@Override
 			public void run() {
+				Thread.currentThread().setName("SchedulerService");
 				logger.debug("execute scheduled task.");
 				datapoints.stream().filter(Datapoint::isCache).forEach( datapoint -> {
 					ReadDatapointOperation operation = new ReadDatapointOperation(protocolController, cache, datapoint);
