@@ -24,3 +24,5 @@
 /nbdist/
 /.nb-gradle/
 /derby.log
+/viessmann.log
+/dependency-reduced-pom.xml

@@ -32,8 +32,11 @@ public class SerialPortMock300 implements SerialPort {
 		this.inputStream = new InputStream() {
 			@Override
 			public int read() throws IOException {
-
 				return inputQueue.poll();
+			}
+			@Override
+			public int read(byte[] ba, int a, int b) {
+				return 0;
 			}
 		};
 
@@ -52,7 +55,7 @@ public class SerialPortMock300 implements SerialPort {
 
 		Integer out = null;
 		while ((out = outputQueue.poll()) != null) {
-			Integer i = new Integer(out);
+			Integer i = Integer.valueOf(out);
 			processList.add(i);
 		}
 

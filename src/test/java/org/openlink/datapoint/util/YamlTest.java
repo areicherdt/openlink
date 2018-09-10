@@ -7,7 +7,7 @@ import static org.junit.Assert.assertTrue;
 import java.util.List;
 
 import org.junit.Test;
-import org.openlink.datapoint.config.ApplicationConfig;
+import org.openlink.datapoint.config.model.ApplicationConfig;
 import org.openlink.datapoint.model.Datapoint;
 import org.openlink.datapoint.protocol.ProtocolType;
 import org.openlink.datapoint.util.YamlLoader;

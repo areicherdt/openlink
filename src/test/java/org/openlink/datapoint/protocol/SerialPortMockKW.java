@@ -39,6 +39,10 @@ public class SerialPortMockKW implements SerialPort {
 				
 				return inputQueue.poll();
 			}
+			@Override
+			public int read(byte[] ba, int a, int b) {
+				return 0;
+			}
 		};
 
 		this.outputStream = new OutputStream() {
@@ -56,7 +60,7 @@ public class SerialPortMockKW implements SerialPort {
 
 		Integer out = null;
 		while ((out = outputQueue.poll()) != null) {
-			Integer i = new Integer(out);
+			Integer i = Integer.valueOf(out);
 			processList.add(i);
 		}
 

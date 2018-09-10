@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.openlink.datapoint.config.ApplicationConfig;
+import org.openlink.datapoint.config.model.ApplicationConfig;
 import org.openlink.datapoint.model.Datapoint;
 import org.slf4j.LoggerFactory;
 import org.yaml.snakeyaml.Yaml;

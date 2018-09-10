@@ -18,8 +18,8 @@ public enum DataType {
 //	UINIT	(4, 1),
 //	TIMER	(8, 1);
 	
-	private int length;
-	private int divider;
+	private final int length;
+	private final int divider;
 	
 	DataType(int length, int divider) {
 		this.length = length;

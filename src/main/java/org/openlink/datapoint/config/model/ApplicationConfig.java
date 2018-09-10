@@ -1,6 +1,5 @@
-package org.openlink.datapoint.config;
+package org.openlink.datapoint.config.model;
 
-import org.openlink.datapoint.config.model.Schedule;
 import org.openlink.datapoint.protocol.ProtocolType;
 
 public class ApplicationConfig {

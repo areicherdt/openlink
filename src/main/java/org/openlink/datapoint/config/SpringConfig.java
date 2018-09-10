@@ -3,10 +3,12 @@ package org.openlink.datapoint.config;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openlink.datapoint.config.model.ApplicationConfig;
 import org.openlink.datapoint.config.model.Schedule;
 import org.openlink.datapoint.controller.CacheController;
 import org.openlink.datapoint.controller.InterfaceController;
 import org.openlink.datapoint.controller.ProtocolController;
+import org.openlink.datapoint.model.Datapoint;
 import org.openlink.datapoint.protocol.TemperatureFilter;
 import org.openlink.datapoint.protocol.ValueFilter;
 import org.openlink.datapoint.protocol.Viessmann300Protocol;
@@ -23,9 +25,18 @@ import org.springframework.context.annotation.Configuration;
 public class SpringConfig {
 
 	@Bean
+	public YamlLoader yamlLoader() {
+		return new YamlLoader();
+	}
+	
+	@Bean
 	public ApplicationConfig applicationConfig() {
-		YamlLoader loader = yamlLoader();
-		return loader.loadConfiguration();
+		return yamlLoader().loadConfiguration();
+	}
+	
+	@Bean 
+	List<Datapoint> datapointList() {
+		return yamlLoader().loadDatapoints();
 	}
 
 	@Bean
@@ -51,24 +62,19 @@ public class SpringConfig {
 
 	@Bean
 	public DatapointService datapointService() {
-		return new DatapointService(protocolController(), yamlLoader().loadDatapoints(), cache());
+		return new DatapointService(protocolController(), datapointList(), cache());
 	}
 
 	@Bean
 	public InterfaceService interfaceService() {
 		return new InterfaceService(interfaceController());
 	}
-
-	@Bean
-	public YamlLoader yamlLoader() {
-		return new YamlLoader();
-	}
 	
 	@Bean
 	public SchedulerService schedulerService() {
 		Schedule scheduleConfig = applicationConfig().getSchedule();
 		if(scheduleConfig.isEnabled()) {
-			return new SchedulerService(yamlLoader().loadDatapoints(), 
+			return new SchedulerService(datapointList(), 
 					applicationConfig(), datapointOperationExecutor(), protocolController(), cache());
 		}
 		return null;

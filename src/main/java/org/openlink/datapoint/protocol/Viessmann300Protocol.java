@@ -19,7 +19,7 @@ public class Viessmann300Protocol implements Protocol {
 	public static final int INIT 	= 0x16;
 	public static final int START 	= 0x41;
 
-	
+	@Override
 	public synchronized byte[] readData(SerialInterface serialInterface, int adress, DataType type) {
 		
 		byte[] transmitBuffer = {0x00, 0x01, (byte)(adress >> 8), (byte)(adress & 0xff), (byte)type.getLength()};

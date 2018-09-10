@@ -5,7 +5,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import org.openlink.datapoint.config.ApplicationConfig;
+import org.openlink.datapoint.config.model.ApplicationConfig;
 import org.openlink.datapoint.controller.CacheController;
 import org.openlink.datapoint.controller.ProtocolController;
 import org.openlink.datapoint.model.Datapoint;
