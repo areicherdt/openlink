@@ -1,0 +1,12 @@
+[Unit]
+Description=openlink service
+After=syslog.target
+
+[Service]
+WorkingDirectory=/var/opt/openlink
+SyslogIdentifier=openLink
+ExecStart=/bin/bash -c "java -Djava.library.path=/usr/lib/jni -jar /var/opt/openlink/openlink.jar"
+User=root
+
+[Install]
+WantedBy=multi-user.target

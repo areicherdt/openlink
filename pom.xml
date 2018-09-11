@@ -101,7 +101,7 @@
 	<build>
 		<defaultGoal>install</defaultGoal>
 		<directory>target</directory>
-		<finalName>${project.artifactId}-${project.version}</finalName>
+		<finalName>${project.artifactId}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>

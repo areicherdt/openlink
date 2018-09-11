@@ -17,7 +17,7 @@ import ch.qos.logback.classic.Logger;
 
 public class YamlLoader {
 	
-	public final static String CONFIG_PATH = "/etc/openlink/";
+	public final static String CONFIG_PATH = "/var/opt/openlink/";
 	
 	static Logger logger = (Logger) LoggerFactory.getLogger(YamlLoader.class);
 
