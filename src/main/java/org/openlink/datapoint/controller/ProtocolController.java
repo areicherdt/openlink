@@ -13,8 +13,8 @@ public class ProtocolController {
 		
 	Logger logger = (Logger) LoggerFactory.getLogger(ProtocolController.class);
 
-	private Protocol protocolHandler;
-	private InterfaceController interfaceController;	
+	private final Protocol protocolHandler;
+	private final InterfaceController interfaceController;
 	
 	public ProtocolController(Protocol protocolHandler, InterfaceController interfaceController) {
 		this.protocolHandler = protocolHandler;

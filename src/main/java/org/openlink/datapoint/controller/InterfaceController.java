@@ -14,7 +14,7 @@ public class InterfaceController {
 	
 	Logger logger = (Logger) LoggerFactory.getLogger(InterfaceController.class);
 	
-	private Map<String, SerialInterface> interfaces= new HashMap<>();
+	private final Map<String, SerialInterface> interfaces= new HashMap<>();
 	
 	public InterfaceController() {}
 	
@@ -23,7 +23,7 @@ public class InterfaceController {
 	}
 	
 	public SerialInterface getFirstInterface() {
-		if(!interfaces.isEmpty() && interfaces.size() == 1) {
+		if(interfaces.size() == 1) {
 			return interfaces.values()
 					.stream().findFirst().get();
 		}

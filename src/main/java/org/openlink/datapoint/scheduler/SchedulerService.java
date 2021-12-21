@@ -5,8 +5,6 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-import javax.annotation.PostConstruct;
-
 import org.openlink.datapoint.config.model.ApplicationConfig;
 import org.openlink.datapoint.controller.CacheController;
 import org.openlink.datapoint.controller.ProtocolController;
@@ -14,7 +12,6 @@ import org.openlink.datapoint.model.Datapoint;
 import org.openlink.datapoint.protocol.command.DatapointOperationExecutor;
 import org.openlink.datapoint.protocol.command.ReadDatapointOperation;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import ch.qos.logback.classic.Logger;
 
@@ -22,25 +19,25 @@ public class SchedulerService {
 	
 	Logger logger = (Logger) LoggerFactory.getLogger(SchedulerService.class);
 	
-	@Autowired
-	private DatapointOperationExecutor operationExecutor;
-	
-	@Autowired
-	private ProtocolController protocolController;
-	
-	@Autowired
-	private CacheController cache;
-	
-	@Autowired
-	private ApplicationConfig config;
-	
-	@Autowired
-	private List<Datapoint> datapoints;
-	
-	private ScheduledExecutorService executorService;
-	
-	@PostConstruct
-	private void init() {
+	private final DatapointOperationExecutor operationExecutor;
+	private final ProtocolController protocolController;
+	private final CacheController cache;
+	private final ApplicationConfig config;
+	private final List<Datapoint> datapoints;
+	private final ScheduledExecutorService executorService;
+
+	public SchedulerService(ApplicationConfig config,
+							CacheController cache,
+							DatapointOperationExecutor operationExecutor,
+							ProtocolController protocolController,
+							List<Datapoint> datapoints)
+	{
+		this.datapoints = datapoints;
+		this.config = config;
+		this.cache = cache;
+		this.operationExecutor = operationExecutor;
+		this.protocolController = protocolController;
+
 		executorService = Executors.newSingleThreadScheduledExecutor();
 		logger.debug("scheduler created.");
 		startExecutor();

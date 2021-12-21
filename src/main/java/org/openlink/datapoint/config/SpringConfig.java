@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.openlink.datapoint.config.model.ApplicationConfig;
 import org.openlink.datapoint.config.model.Schedule;
+import org.openlink.datapoint.controller.CacheController;
 import org.openlink.datapoint.controller.InterfaceController;
 import org.openlink.datapoint.controller.ProtocolController;
 import org.openlink.datapoint.model.Datapoint;
@@ -12,8 +13,10 @@ import org.openlink.datapoint.protocol.TemperatureFilter;
 import org.openlink.datapoint.protocol.ValueFilter;
 import org.openlink.datapoint.protocol.Viessmann300Protocol;
 import org.openlink.datapoint.protocol.ViessmannKWProtocol;
+import org.openlink.datapoint.protocol.command.DatapointOperationExecutor;
 import org.openlink.datapoint.scheduler.SchedulerService;
 import org.openlink.datapoint.util.YamlLoader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -54,10 +57,17 @@ public class SpringConfig {
 	}
 
 	@Bean
-	public SchedulerService schedulerService() {
+	@Autowired
+	public SchedulerService schedulerService(CacheController cache,
+											 DatapointOperationExecutor operationExecutor)
+	{
 		Schedule scheduleConfig = applicationConfig().getSchedule();
 		if(scheduleConfig.isEnabled()) {
-			return new SchedulerService();
+			return new SchedulerService(applicationConfig(),
+					cache,
+					operationExecutor,
+					protocolController(),
+					datapointList());
 		}
 		return null;
 	}

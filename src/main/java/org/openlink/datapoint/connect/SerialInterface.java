@@ -9,25 +9,22 @@ import ch.qos.logback.classic.Logger;
 
 public class SerialInterface {
 	
-	Logger logger = (Logger) LoggerFactory.getLogger(SerialInterface.class);
+	private static final Logger logger = (Logger) LoggerFactory.getLogger(SerialInterface.class);
 
-	private SerialPort serialPort;
+	private final SerialPort serialPort;
 	
 	public SerialInterface(SerialPort serialPort) {
 		this.serialPort = serialPort;
 	}
 
 	public synchronized int read() throws IOException {
-		int data = -1;
-		
-		data = serialPort.getInputStream().read();
+		int data = serialPort.getInputStream().read();
 		if(data!=-1) {
 			logger.trace("read {} <- {}", String.format("0x%02X", data), serialPort.getPortName());
 		}
 		else {
 			logger.debug("read failed." + serialPort.getPortName());
 		}
-
 		return data;
 	}
 	

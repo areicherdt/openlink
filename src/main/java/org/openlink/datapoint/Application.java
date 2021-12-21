@@ -1,6 +1,6 @@
 package org.openlink.datapoint;
 
-import java.util.Date;
+import java.time.Instant;
 
 import org.openlink.datapoint.config.SparkConfig;
 import org.openlink.datapoint.config.SpringConfig;
@@ -9,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import ch.qos.logback.classic.Logger;
-
 
 public class Application {
 
@@ -20,8 +19,7 @@ public class Application {
 		logger.info("Application startup.");
 		SparkConfig.load();	
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(SpringConfig.class);
-		logger.info("context loaded {}", new Date(ctx.getStartupDate()));
-		
+		logger.info("context loaded {}", Instant.ofEpochMilli(ctx.getStartupDate()));
 	}
 
 }

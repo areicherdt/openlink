@@ -33,7 +33,7 @@ public class Datapoint {
 	}
 	@Override
 	public String toString() {
-		StringBuffer str = new StringBuffer();
+		StringBuilder str = new StringBuilder();
 		str.append(address).append(" / ").append(type).append(" / ").append(channel).append(" / cache: ").append(cache);
 		return str.toString();
 	}

@@ -28,8 +28,8 @@ public class YamlLoader {
 		ApplicationConfig config = yaml.load(io);
 		try {
 			io.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException ex) {
+			logger.error(ex.getMessage());
 		}
 		return config;
 	}
@@ -42,8 +42,8 @@ public class YamlLoader {
 		yaml.loadAll(io).forEach(o -> result.add((Datapoint) o));
 		try {
 			io.close();
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException ex) {
+			logger.error(ex.getMessage());
 		}
 		return result;
 	}

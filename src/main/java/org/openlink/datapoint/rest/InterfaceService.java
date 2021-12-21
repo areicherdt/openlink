@@ -2,8 +2,6 @@ package org.openlink.datapoint.rest;
 
 import static spark.Spark.get;
 
-import javax.annotation.PostConstruct;
-
 import org.openlink.datapoint.connect.InterfaceFactory;
 import org.openlink.datapoint.controller.InterfaceController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +17,7 @@ public class InterfaceService {
 	@Autowired
 	private InterfaceController interfaceController;
 
-	@PostConstruct
-	private void init() {	
+	public InterfaceService() {
 		
 		get("/status/ports",(req, res)-> {
 			res.type(RETURN_TYPE);

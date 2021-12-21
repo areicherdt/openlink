@@ -32,9 +32,7 @@ public class InterfaceFactory {
 							
 				logger.debug("Created serialPort for {}", commPort);
 				
-				SerialInterface serialInterface = new SerialInterface(serialPort);
-				return serialInterface;
-				
+				return new SerialInterface(serialPort);
 			} catch (IOException e) {
 				logger.error(e.getMessage());
 				throw new RuntimeException(e.getMessage());

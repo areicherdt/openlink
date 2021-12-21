@@ -17,15 +17,14 @@
 		</encoder>
 	</appender>
 
-	<logger name="org.openlink.datapoint"
-		level="DEBUG" />
+	<logger name="org.openlink.datapoint" level="INFO" />
 
 	<logger name="org.apache.spark" level="WARN" />
 	<logger name="org.eclipse.jetty" level="WARN" />
 
-	<root level="WARN">
+	<root level="INFO">
 		<appender-ref ref="STDOUT" />
-		<appender-ref ref="FILE" />
+		<!--<appender-ref ref="FILE" />-->
 	</root>
 	
 </configuration>

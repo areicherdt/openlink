@@ -4,8 +4,6 @@ import static spark.Spark.get;
 
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-
 import org.openlink.datapoint.controller.CacheController;
 import org.openlink.datapoint.controller.ProtocolController;
 import org.openlink.datapoint.model.Datapoint;
@@ -18,18 +16,9 @@ import com.google.gson.Gson;
 public class DatapointService {
 
 	private static final String RETURN_TYPE = "application/json";
-	
+
 	@Autowired
-	private ProtocolController controller;
-	
-	@Autowired
-	private CacheController cache;
-	
-	@Autowired
-	private List<Datapoint> datapoints;
-		
-	@PostConstruct
-	private void init() {
+	public DatapointService(ProtocolController controller, CacheController cache, List<Datapoint> datapoints) {
 			
 		datapoints.stream().forEach(dp -> {
 			String ch = dp.getChannel();

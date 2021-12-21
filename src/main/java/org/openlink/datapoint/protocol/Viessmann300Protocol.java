@@ -115,8 +115,8 @@ public class Viessmann300Protocol implements Protocol {
 			}
 		} catch (SerialPortTimeoutException e) {
 			logger.error("transferData timeout -> " + serialInterface.getSerialPort().getPortName());
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			logger.error(ex.getMessage());
 		}
 		return true;
 	}
@@ -141,8 +141,8 @@ public class Viessmann300Protocol implements Protocol {
 			return resultLength;
 		} catch (SerialPortTimeoutException e) {
 			logger.error("receiveData timeout -> " + serialInterface.getSerialPort().getPortName());
-		} catch (Exception e) {
-			e.printStackTrace();
+		} catch (Exception ex) {
+			logger.error(ex.getMessage());
 		}
 		
 		

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class CacheController {
 	
-	private Map<String, ChannelResult> cache;
+	private final Map<String, ChannelResult> cache;
 	
 	public CacheController() {
 		this.cache = new HashMap<>();
