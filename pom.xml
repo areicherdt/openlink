@@ -20,7 +20,7 @@
 		<openmuc.jrxtx.version>1.0.1</openmuc.jrxtx.version>
 		<logback.logback-classic.version>1.2.3</logback.logback-classic.version>
 		<springframework.version>5.3.14</springframework.version>
-		<yaml.sankeyaml.version>1.21</yaml.sankeyaml.version>
+		<yaml.sankeyaml.version>1.30</yaml.sankeyaml.version>
 	</properties>
 
 	<dependencies>
@@ -82,7 +82,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.12</version>
+			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
 
